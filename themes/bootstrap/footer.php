@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 
 	</div>
 	<div id="footer">
@@ -10,7 +12,7 @@
 				<?php if (Flux::config('ShowRenderDetails')): ?>
 				
 					Page generated in <strong><?php echo round(microtime(true) - __START__, 5) ?></strong> second(s).
-					Number of queries executed: <strong><?php echo (int)Flux::$numberOfQueries ?></strong>.
+					Number of queries executed: <strong><?php echo (int) Flux::$numberOfQueries ?></strong>.
 					<?php if (Flux::config('GzipCompressOutput')): ?>Gzip Compression: <strong>Enabled</strong>.<?php endif ?>
 				
 				<?php endif ?>
@@ -19,7 +21,9 @@
 					<span>Theme:
 						<select name="preferred_theme" onchange="updatePreferredTheme(this)">
 						<?php foreach (Flux::$appConfig->get('ThemeName', false) as $themeName): ?>
-							<option value="<?php echo htmlspecialchars($themeName) ?>"<?php if ($session->theme == $themeName) echo ' selected="selected"' ?>><?php echo htmlspecialchars($themeName) ?></option>
+							<option value="<?php echo htmlspecialchars($themeName) ?>"<?php if ($session->theme == $themeName) {
+    echo ' selected="selected"';
+} ?>><?php echo htmlspecialchars($themeName) ?></option>
 						<?php endforeach ?>
 						</select>
 					</span>

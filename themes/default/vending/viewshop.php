@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars($title); ?></h2>
 <?php if ($vending): ?>
     <h3 style="text-align:right; margin:0; padding:0;font-style: italic"><img style="position:relative;top:7px;" src="<?php echo $this->iconImage(671) ?>?nocache=<?php echo rand() ?>" /> <?php echo $vending->title ?> </h3>
@@ -26,7 +28,7 @@
                         <td width="50" align="right"  style="">
 
                             <?php if ($auth->actionAllowed('item', 'view')): ?>
-                                <a href="<?php echo $this->url('item', 'view', array("id" => $item->nameid)); ?>"><?php echo $item->nameid; ?></a>
+                                <a href="<?php echo $this->url('item', 'view', ['id' => $item->nameid]); ?>"><?php echo $item->nameid; ?></a>
                             <?php else: ?>
                                 <?php echo $item->nameid ?>
                             <?php endif ?>
@@ -37,7 +39,7 @@
 
                             <img src="<?php echo $this->iconImage($item->nameid) ?>?nocache=<?php echo rand() ?>" />
                             <?php if ($auth->actionAllowed('item', 'view')): ?>
-                                <a href="<?php echo $this->url('item', 'view', array("id" => $item->nameid)); ?>"><?php echo $item->item_name; ?></a>
+                                <a href="<?php echo $this->url('item', 'view', ['id' => $item->nameid]); ?>"><?php echo $item->item_name; ?></a>
                             <?php else: ?>
                                 <?php echo $item->item_name ?>
                             <?php endif ?>
@@ -55,7 +57,7 @@
                             <?php endif; ?>
 
                             <?php if ($item->card0 == 255 && intval($item->card1 / 1280) > 0): ?>
-                                <?php $itemcard1 = intval($item->card1/1280); ?>
+                                <?php $itemcard1 = intval($item->card1 / 1280); ?>
                                 <?php for ($i = 0; $i < $itemcard1; $i++): ?>
                                     Very
                                 <?php endfor ?>
@@ -65,9 +67,9 @@
                             <?php if ($item->card0 == 254 || $item->card0 == 255): ?>
                                 <?php if ($item->char_name): ?>
                                     <?php if ($auth->actionAllowed('character', 'view') && ($isMine || (!$isMine && $auth->allowedToViewCharacter))): ?>
-                                        <?php echo $this->linkToCharacter($item->char_id, $item->char_name, $session->serverName) . "'s" ?>
+                                        <?php echo $this->linkToCharacter($item->char_id, $item->char_name, $session->serverName)."'s" ?>
                                     <?php else: ?>
-                                        <?php echo htmlspecialchars($item->char_name . "'s") ?>
+                                        <?php echo htmlspecialchars($item->char_name."'s") ?>
                                     <?php endif ?>
                                 <?php else: ?>
                                     <span class="not-applicable"><?php echo htmlspecialchars(Flux::message('UnknownLabel')) ?></span>'s
@@ -81,7 +83,7 @@
 
                         <td>
                         <?php if ($item->slots): ?>
-                            <?php echo htmlspecialchars(' [' . $item->slots . ']') ?>
+                            <?php echo htmlspecialchars(' ['.$item->slots.']') ?>
                         <?php endif ?>
                         </td>
 

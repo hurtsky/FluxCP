@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>CashShop</h2>
 <h3>Add Item to the CashShop</h3>
 <?php if ($item): ?>
@@ -20,7 +22,9 @@
 		<td>
 			<select name="tab" id="tab">
 				<?php foreach ($categories as $categoryID => $cat): ?>
-					<option value="<?php echo (int)$categoryID ?>"<?php if ($category === (string)$categoryID) echo ' selected="selected"' ?>><?php echo htmlspecialchars($cat) ?></option>
+					<option value="<?php echo (int) $categoryID ?>"<?php if ($category === (string) $categoryID) {
+    echo ' selected="selected"';
+} ?>><?php echo htmlspecialchars($cat) ?></option>
 				<?php endforeach ?>
 			</select>
 		</td>

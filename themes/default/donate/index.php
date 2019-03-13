@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Donate</h2>
 <?php if (Flux::config('AcceptDonations')): ?>
 	<?php if (!empty($errorMessage)): ?>
@@ -10,17 +12,17 @@
 	<p>All donations towards us are received by PayPal, but don't worry!  Even if you don't have an account with PayPal, you can still use your credit card to donate!</p>
 		
 	<?php
-	$currency         = Flux::config('DonationCurrency');
-	$dollarAmount     = (float)+Flux::config('CreditExchangeRate');
-	$creditAmount     = 1;
-	$rateMultiplier   = 10;
-	$hoursHeld        = +(int)Flux::config('HoldUntrustedAccount');
-	
-	while ($dollarAmount < 1) {
-		$dollarAmount  *= $rateMultiplier;
-		$creditAmount  *= $rateMultiplier;
-	}
-	?>
+    $currency = Flux::config('DonationCurrency');
+    $dollarAmount = (float) +Flux::config('CreditExchangeRate');
+    $creditAmount = 1;
+    $rateMultiplier = 10;
+    $hoursHeld = +(int) Flux::config('HoldUntrustedAccount');
+
+    while ($dollarAmount < 1) {
+        $dollarAmount *= $rateMultiplier;
+        $creditAmount *= $rateMultiplier;
+    }
+    ?>
 	
 	<?php if ($hoursHeld): ?>
 		<p>To prevent fraudulent payments, our server currently locks the crediting process for
@@ -52,14 +54,14 @@
 				Enter an amount you would like to donate:
 				<input class="money-input" type="text" name="amount"
 					value="<?php echo htmlspecialchars($params->get('amount')) ?>"
-					size="<?php echo (strlen((string)+Flux::config('CreditExchangeRate')) * 2) + 2 ?>" />
+					size="<?php echo(strlen((string) +Flux::config('CreditExchangeRate')) * 2) + 2 ?>" />
 				<?php echo htmlspecialchars(Flux::config('DonationCurrency')) ?>
 			</label>
 			or
 			<label>
 				<input class="credit-input" type="text" name="credit-amount"
 					value="<?php echo htmlspecialchars(intval($params->get('amount') / Flux::config('CreditExchangeRate'))) ?>"
-					size="<?php echo (strlen((string)+Flux::config('CreditExchangeRate')) * 2) + 2 ?>" />
+					size="<?php echo(strlen((string) +Flux::config('CreditExchangeRate')) * 2) + 2 ?>" />
 				Credits
 			</label>
 		</p>
@@ -82,7 +84,7 @@
 		</span>
 	</p>
 	<p class="reset-amount-text">
-		<a href="<?php echo $this->url('donate', 'index', array('resetamount' => true)) ?>">(Reset Amount)</a>
+		<a href="<?php echo $this->url('donate', 'index', ['resetamount' => true]) ?>">(Reset Amount)</a>
 	</p>
 	<p><?php echo $this->donateButton($donationAmount) ?></p>
 	<?php endif ?>

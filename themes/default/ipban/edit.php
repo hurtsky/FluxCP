@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('IpbanEditHeading')) ?></h2>
 <?php if ($ipban): ?>
 	<?php if (!empty($errorMessage)): ?>
@@ -10,29 +12,29 @@
 			<tr>
 				<th><label for="list"><?php echo htmlspecialchars(Flux::message('IpbanIpAddressLabel')) ?></label></th>
 				<td><input type="text" name="newlist" id="list"
-						value="<?php echo htmlspecialchars(($list=$params->get('newlist')) ? $list : $ipban->list) ?>" /></td>
+						value="<?php echo htmlspecialchars(($list = $params->get('newlist')) ? $list : $ipban->list) ?>" /></td>
 				<td><p><?php echo htmlspecialchars(Flux::message('IpbanIpAddressInfo')) ?></p></td>
 			</tr>
 			<tr>
 				<th><label for="reason"><?php echo htmlspecialchars(Flux::message('IpbanReasonLabel')) ?></label></th>
 				<td>
 					<textarea name="reason" id="reason" class="reason"><?php
-						echo htmlspecialchars(($reason=$params->get('reason')) ? $reason : $ipban->reason)
-					?></textarea>
+                        echo htmlspecialchars(($reason = $params->get('reason')) ? $reason : $ipban->reason)
+                    ?></textarea>
 				</td>
 				<td></td>
 			</tr>
 			<tr>
 				<th><label><?php echo htmlspecialchars(Flux::message('IpbanUnbanDateLabel')) ?></label></th>
-				<td><?php echo $this->dateTimeField('rtime', ($rtime=$params->get('rtime')) ? $rtime : $ipban->rtime) ?></td>
+				<td><?php echo $this->dateTimeField('rtime', ($rtime = $params->get('rtime')) ? $rtime : $ipban->rtime) ?></td>
 				<td></td>
 			</tr>
 			<tr>
 				<th><label for="edit_reason"><?php echo htmlspecialchars(Flux::message('IpbanEditReasonLabel')) ?></label></th>
 				<td>
 					<textarea name="edit_reason" id="edit_reason" class="edit_reason"><?php
-						echo htmlspecialchars(($editReason=$params->get('edit_reason')) ? $editReason : '')
-					?></textarea>
+                        echo htmlspecialchars(($editReason = $params->get('edit_reason')) ? $editReason : '')
+                    ?></textarea>
 				</td>
 				<td></td>
 			</tr>

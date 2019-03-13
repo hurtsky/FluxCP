@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('IpbanAddHeading')) ?></h2>
 <?php if (!empty($errorMessage)): ?>
 	<p class="red"><?php echo htmlspecialchars($errorMessage) ?></p>
@@ -20,7 +22,7 @@
 		</tr>
 		<tr>
 			<th><label><?php echo htmlspecialchars(Flux::message('IpbanUnbanDateLabel')) ?></label></th>
-			<td><?php echo $this->dateTimeField('rtime', ($rtime=$params->get('rtime')) ? $rtime : null) ?></td>
+			<td><?php echo $this->dateTimeField('rtime', ($rtime = $params->get('rtime')) ? $rtime : null) ?></td>
 			<td></td>
 		</tr>
 		<tr>

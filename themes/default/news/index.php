@@ -1,19 +1,21 @@
 <?php 
-if (!defined('FLUX_ROOT')) exit;
+if (!defined('FLUX_ROOT')) {
+    exit;
+}
 ?>           
 <h2><?php echo htmlspecialchars(Flux::message('CMSNewsHeader')) ?></h2>
-<?php if($newstype == '1'):?>
-	<?php if($news): ?>
+<?php if ($newstype == '1'):?>
+	<?php if ($news): ?>
 	<div class="newsDiv">
-		<?php foreach($news as $nrow):?>
+		<?php foreach ($news as $nrow):?>
 			<h2><?php echo $nrow->title ?></h2>
 			<div class="newsCont">
-				<span class="newsDate"><small>by <?php echo $nrow->author ?> on <?php echo date(Flux::config('DateFormat'),strtotime($nrow->created))?></small></span>
+				<span class="newsDate"><small>by <?php echo $nrow->author ?> on <?php echo date(Flux::config('DateFormat'), strtotime($nrow->created))?></small></span>
 				<p><?php echo $nrow->body ?></p>
-				<?php if($nrow->created != $nrow->modified && Flux::config('CMSDisplayModifiedBy')):?>
-					<small><?php echo htmlspecialchars(Flux::message('CMSModifiedLabel')) ?> : <?php echo date('m-d-y',strtotime($nrow->modified))?></small>
+				<?php if ($nrow->created != $nrow->modified && Flux::config('CMSDisplayModifiedBy')):?>
+					<small><?php echo htmlspecialchars(Flux::message('CMSModifiedLabel')) ?> : <?php echo date('m-d-y', strtotime($nrow->modified))?></small>
 				<?php endif; ?>
-				<?php if($nrow->link): ?>
+				<?php if ($nrow->link): ?>
 					<a class="news_link" href="<?php echo $nrow->link ?>"><small><?php echo htmlspecialchars(Flux::message('CMSNewsLink')) ?></small></a>
 					<div class="clear"></div>
 				<?php endif; ?>
@@ -28,14 +30,14 @@ if (!defined('FLUX_ROOT')) exit;
 
 
 
-<?php elseif($newstype == '2'):?>
-	<?php if(isset($xml) && isset($xml->channel)): ?>
+<?php elseif ($newstype == '2'):?>
+	<?php if (isset($xml) && isset($xml->channel)): ?>
 	<div class="newsDiv">
-		<?php foreach($xml->channel->item as $rssItem): ?>
-			<?php $i++; if($i <= $newslimit): ?>
+		<?php foreach ($xml->channel->item as $rssItem): ?>
+			<?php $i++; if ($i <= $newslimit): ?>
 				<h2><?php echo $rssItem->title ?></h2>
 				<div class="newsCont">
-					<span class="newsDate"><small>Posted on <?php echo date(Flux::config('DateFormat'),strtotime($rssItem->pubDate))?></small></span>
+					<span class="newsDate"><small>Posted on <?php echo date(Flux::config('DateFormat'), strtotime($rssItem->pubDate))?></small></span>
 					<p><?php echo $rssItem->description ?></p>
 					<a class="news_link" href="<?php echo $rssItem->link ?>"><small><?php echo htmlspecialchars(Flux::message('CMSNewsLink')) ?></small></a>
 					<div class="clear"></div>

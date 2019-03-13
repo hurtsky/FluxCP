@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <?php if ($session->isLoggedIn()): ?>
 <table cellspacing="0" cellpadding="0" width="100%" id="loginbox">
 	<tr>
@@ -13,12 +15,16 @@
 				You are currently logged in as <strong><a href="<?php echo $this->url('account', 'view') ?>" title="View account"><?php echo htmlspecialchars($session->account->userid) ?></a></strong>
 				on <?php echo htmlspecialchars($session->serverName) ?>.
 				
-			<?php if (count($athenaServerNames=$session->getAthenaServerNames()) > 1): ?>
+			<?php if (count($athenaServerNames = $session->getAthenaServerNames()) > 1): ?>
 				Your preferred server is:
 			
-			<select name="preferred_server" onchange="updatePreferredServer(this)"<?php if (count($athenaServerNames=$session->getAthenaServerNames()) === 1) echo ' disabled="disabled"'  ?>>
+			<select name="preferred_server" onchange="updatePreferredServer(this)"<?php if (count($athenaServerNames = $session->getAthenaServerNames()) === 1) {
+    echo ' disabled="disabled"';
+}  ?>>
 				<?php foreach ($athenaServerNames as $serverName): ?>
-				<option value="<?php echo htmlspecialchars($serverName) ?>"<?php if ($server->serverName == $serverName) echo ' selected="selected"' ?>><?php echo htmlspecialchars($serverName) ?></option>
+				<option value="<?php echo htmlspecialchars($serverName) ?>"<?php if ($server->serverName == $serverName) {
+    echo ' selected="selected"';
+} ?>><?php echo htmlspecialchars($serverName) ?></option>
 				<?php endforeach ?>
 			</select>.
 			<?php endif ?>
@@ -30,7 +36,9 @@
 		<td bgcolor="#e1eaf3"></td>
 	</tr>
 	<?php if (!empty($adminMenuItems) && Flux::config('AdminMenuNewStyle')): ?>
-	<?php $mItems = array(); foreach ($adminMenuItems as $menuItem) $mItems[] = sprintf('<a href="%s">%s</a>', $menuItem['url'], htmlspecialchars(Flux::message($menuItem['name']))) ?>
+	<?php $mItems = []; foreach ($adminMenuItems as $menuItem) {
+    $mItems[] = sprintf('<a href="%s">%s</a>', $menuItem['url'], htmlspecialchars(Flux::message($menuItem['name'])));
+} ?>
 	<tr>
 		<td bgcolor="#e1eaf3"></td>
 		<td bgcolor="#e1eaf3" valign="middle" class="loginbox-admin-menu">

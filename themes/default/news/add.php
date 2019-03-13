@@ -1,6 +1,8 @@
 <?php 
-if (!defined('FLUX_ROOT')) exit;
-$this->loginRequired(); 
+if (!defined('FLUX_ROOT')) {
+    exit;
+}
+$this->loginRequired();
 ?>
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <script>tinymce.init(

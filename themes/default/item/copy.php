@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Duplicate Item</h2>
 <?php if ($item): ?>
 <?php if (!empty($errorMessage)): ?>
@@ -15,7 +17,7 @@
 				<p>
 					<strong><?php echo htmlspecialchars($item->name_japanese) ?></strong>
 					<?php if ($auth->actionAllowed('item', 'view')): ?>
-						(<a href="<?php echo $this->url('item', 'view', array('id' => $itemID)) ?>"><?php echo htmlspecialchars($itemID) ?></a>)
+						(<a href="<?php echo $this->url('item', 'view', ['id' => $itemID]) ?>"><?php echo htmlspecialchars($itemID) ?></a>)
 					<?php else: ?>
 						(<?php echo htmlspecialchars($itemID) ?>)
 					<?php endif ?>

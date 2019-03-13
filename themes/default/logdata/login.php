@@ -1,14 +1,20 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Logins</h2>
 <p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
 <form action="<?php echo $this->url ?>" method="get" class="search-form">
 	<?php echo $this->moduleActionFormInputs($params->get('module'), $params->get('action')) ?>
 	<p>
 		<label for="use_log_after">Date Between:</label>
-		<input type="checkbox" name="use_log_after" id="use_log_after"<?php if ($params->get('use_log_after')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_log_after" id="use_log_after"<?php if ($params->get('use_log_after')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('log_after') ?>
 		<label for="use_log_before">&mdash;</label>
-		<input type="checkbox" name="use_log_before" id="use_log_before"<?php if ($params->get('use_log_before')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_log_before" id="use_log_before"<?php if ($params->get('use_log_before')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('log_before') ?>
 	</p>
 	<p>
@@ -43,7 +49,7 @@
 		<td align="right"><?php echo htmlspecialchars($this->formatDateTime($login->time)) ?></td>
 		<td>
 			<?php if ($auth->actionAllowed('account', 'index')): ?>
-				<?php echo $this->linkToAccountSearch(array('last_ip' => $login->ip), $login->ip) ?>
+				<?php echo $this->linkToAccountSearch(['last_ip' => $login->ip], $login->ip) ?>
 			<?php else: ?>
 				<?php echo htmlspecialchars($login->ip) ?>
 			<?php endif ?>

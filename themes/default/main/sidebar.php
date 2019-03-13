@@ -1,5 +1,7 @@
 <?php
-if (!defined('FLUX_ROOT')) exit;
+if (!defined('FLUX_ROOT')) {
+    exit;
+}
 $adminMenuItems = $this->getAdminMenuItems();
 $menuItems = $this->getMenuItems();
 ?>
@@ -16,8 +18,9 @@ $menuItems = $this->getMenuItems();
 	<tr>
 		<td class="menuitem">
 			<a href="<?php echo $this->url($menuItem['module'], $menuItem['action']) ?>"<?php
-				if ($menuItem['module'] == 'account' && $menuItem['action'] == 'logout')
-					echo ' onclick="return confirm(\'Are you sure you want to logout?\')"' ?>>
+                if ($menuItem['module'] == 'account' && $menuItem['action'] == 'logout') {
+                    echo ' onclick="return confirm(\'Are you sure you want to logout?\')"';
+                } ?>>
 				<span><?php echo htmlspecialchars(Flux::message($menuItem['name'])) ?></span>
 			</a>
 		</td>
@@ -43,8 +46,9 @@ $menuItems = $this->getMenuItems();
 	<tr>
 		<td class="menuitem">
 			<a href="<?php echo $menuItem['url'] ?>"<?php
-				if ($menuItem['module'] == 'account' && $menuItem['action'] == 'logout')
-					echo ' onclick="return confirm(\'Are you sure you want to logout?\')"' ?>>
+                if ($menuItem['module'] == 'account' && $menuItem['action'] == 'logout') {
+                    echo ' onclick="return confirm(\'Are you sure you want to logout?\')"';
+                } ?>>
 				<span><?php echo htmlspecialchars(Flux::message($menuItem['name'])) ?></span>
 			</a>
 		</td>

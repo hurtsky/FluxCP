@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('HistoryPassChangeHeading')) ?></h2>
 <?php if ($changes): ?>
 <?php echo $paginator->infoText() ?>
@@ -12,7 +14,7 @@
 		<td><?php echo htmlspecialchars($change->change_date) ?></td>
 		<td>
 		<?php if ($auth->actionAllowed('account', 'index')): ?>
-			<?php echo $this->linkToAccountSearch(array('last_ip' => $change->change_ip), $change->change_ip) ?>
+			<?php echo $this->linkToAccountSearch(['last_ip' => $change->change_ip], $change->change_ip) ?>
 		<?php else: ?>
 			<?php echo htmlspecialchars($change->change_ip) ?>
 		<?php endif ?>

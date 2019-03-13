@@ -1,5 +1,7 @@
 <?php
-if (!defined('FLUX_ROOT')) exit;
+if (!defined('FLUX_ROOT')) {
+    exit;
+}
 ?>
 <h2>Item Shop</h2>
 <h3>Add Item to the Shop</h3>
@@ -24,9 +26,13 @@ if (!defined('FLUX_ROOT')) exit;
 		<th><label for="category">Category</label></th>
 		<td>
 			<select name="category" id="category">
-				<option value="none"<?php if (is_null($category) || strtolower($category) == 'none') echo ' selected="selected"' ?>><?php echo htmlspecialchars(Flux::message('NoneLabel')) ?></option>
+				<option value="none"<?php if (is_null($category) || strtolower($category) == 'none') {
+    echo ' selected="selected"';
+} ?>><?php echo htmlspecialchars(Flux::message('NoneLabel')) ?></option>
 				<?php foreach ($categories as $categoryID => $cat): ?>
-					<option value="<?php echo (int)$categoryID ?>"<?php if ($category === (string)$categoryID) echo ' selected="selected"' ?>><?php echo htmlspecialchars($cat) ?></option>
+					<option value="<?php echo (int) $categoryID ?>"<?php if ($category === (string) $categoryID) {
+    echo ' selected="selected"';
+} ?>><?php echo htmlspecialchars($cat) ?></option>
 				<?php endforeach ?>
 			</select>
 		</td>
@@ -51,7 +57,9 @@ if (!defined('FLUX_ROOT')) exit;
 		<th><label for="image">Image</label></th>
 		<td>
 			<input type="file" name="image" id="image" />
-			<label>Attempt to use existing item image? <input type="checkbox" name="use_existing" value="1"<?php if ($params->get('use_existing')) echo ' checked="checked"' ?> /></label>
+			<label>Attempt to use existing item image? <input type="checkbox" name="use_existing" value="1"<?php if ($params->get('use_existing')) {
+    echo ' checked="checked"';
+} ?> /></label>
 		</td>
 	</tr>
 	<tr>

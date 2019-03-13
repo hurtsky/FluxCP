@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Re-Install Database Schemas</h2>
 <p>You may re-install your database schema files (*.sql files) from this interface. If you are absolutely sure you want to proceed with this then click "continue".</p>
 <p><strong>Note:</strong> By doing so, you may end up with duplicate indexes on your MySQL tables, but they are not harmful (this feature is highly experimental).</p>

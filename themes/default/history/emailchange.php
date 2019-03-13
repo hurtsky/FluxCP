@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('HistoryEmailHeading')) ?></h2>
 <?php if ($changes): ?>
 <?php echo $paginator->infoText() ?>
@@ -16,21 +18,21 @@
 		<td><?php echo $this->formatDateTime($change->request_date) ?></td>
 		<td>
 		<?php if ($auth->actionAllowed('account', 'index')): ?>
-			<?php echo $this->linkToAccountSearch(array('last_ip' => $change->request_ip), $change->request_ip) ?>
+			<?php echo $this->linkToAccountSearch(['last_ip' => $change->request_ip], $change->request_ip) ?>
 		<?php else: ?>
 			<?php echo htmlspecialchars($change->request_ip) ?>
 		<?php endif ?>
 		</td>
 		<td>
 		<?php if ($auth->actionAllowed('account', 'index')): ?>
-			<?php echo $this->linkToAccountSearch(array('email' => $change->old_email), $change->old_email) ?>
+			<?php echo $this->linkToAccountSearch(['email' => $change->old_email], $change->old_email) ?>
 		<?php else: ?>
 			<?php echo htmlspecialchars($change->old_email) ?>
 		<?php endif ?>
 		</td>
 		<td>
 		<?php if ($auth->actionAllowed('account', 'index')): ?>
-			<?php echo $this->linkToAccountSearch(array('email' => $change->new_email), $change->new_email) ?>
+			<?php echo $this->linkToAccountSearch(['email' => $change->new_email], $change->new_email) ?>
 		<?php else: ?>
 			<?php echo htmlspecialchars($change->new_email) ?>
 		<?php endif ?>
@@ -45,7 +47,7 @@
 		<td>
 			<?php if ($change->change_ip): ?>
 				<?php if ($auth->actionAllowed('account', 'index')): ?>
-					<?php echo $this->linkToAccountSearch(array('last_ip' => $change->change_ip), $change->change_ip) ?>
+					<?php echo $this->linkToAccountSearch(['last_ip' => $change->change_ip], $change->change_ip) ?>
 				<?php else: ?>
 					<?php echo htmlspecialchars($change->change_ip) ?>
 				<?php endif ?>

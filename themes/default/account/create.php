@@ -1,10 +1,12 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('AccountCreateHeading')) ?></h2>
 <p><?php printf(htmlspecialchars(Flux::message('AccountCreateInfo')), '<a href="'.$this->url('service', 'tos').'">'.Flux::message('AccountCreateTerms').'</a>') ?></p>
 <?php if (Flux::config('RequireEmailConfirm')): ?>
 <p><strong>Note:</strong> You will need to provide a working e-mail address to confirm your account before you can log-in.</p>
 <?php endif ?>
-<p><strong>Note:</strong> <?php echo sprintf("Your password must be between %d and %d characters.", Flux::config('MinPasswordLength'), Flux::config('MaxPasswordLength')) ?></p>
+<p><strong>Note:</strong> <?php echo sprintf('Your password must be between %d and %d characters.', Flux::config('MinPasswordLength'), Flux::config('MaxPasswordLength')) ?></p>
 <?php if (Flux::config('PasswordMinUpper') > 0): ?>
 <p><strong>Note:</strong> <?php echo sprintf(Flux::message('PasswordNeedUpper'), Flux::config('PasswordMinUpper')) ?></p>
 <?php endif ?>
@@ -32,9 +34,13 @@
 		<tr>
 			<th><label for="register_server"><?php echo htmlspecialchars(Flux::message('AccountServerLabel')) ?></label></th>
 			<td>
-				<select name="server" id="register_server"<?php if (count($serverNames) === 1) echo ' disabled="disabled"' ?>>
+				<select name="server" id="register_server"<?php if (count($serverNames) === 1) {
+    echo ' disabled="disabled"';
+} ?>>
 				<?php foreach ($serverNames as $serverName): ?>
-					<option value="<?php echo htmlspecialchars($serverName) ?>"<?php if ($params->get('server') == $serverName) echo ' selected="selected"' ?>><?php echo htmlspecialchars($serverName) ?></option>
+					<option value="<?php echo htmlspecialchars($serverName) ?>"<?php if ($params->get('server') == $serverName) {
+    echo ' selected="selected"';
+} ?>><?php echo htmlspecialchars($serverName) ?></option>
 				<?php endforeach ?>
 				</select>
 			</td>
@@ -70,8 +76,12 @@
 			<th><label><?php echo htmlspecialchars(Flux::message('AccountGenderLabel')) ?></label></th>
 			<td>
 				<p>
-					<label><input type="radio" name="gender" id="register_gender_m" value="M"<?php if ($params->get('gender') === 'M') echo ' checked="checked"' ?> /> <?php echo $this->genderText('M') ?></label>
-					<label><input type="radio" name="gender" id="register_gender_f" value="F"<?php if ($params->get('gender') === 'F') echo ' checked="checked"' ?> /> <?php echo $this->genderText('F') ?></label>
+					<label><input type="radio" name="gender" id="register_gender_m" value="M"<?php if ($params->get('gender') === 'M') {
+    echo ' checked="checked"';
+} ?> /> <?php echo $this->genderText('M') ?></label>
+					<label><input type="radio" name="gender" id="register_gender_f" value="F"<?php if ($params->get('gender') === 'F') {
+    echo ' checked="checked"';
+} ?> /> <?php echo $this->genderText('F') ?></label>
 					<strong title="<?php echo htmlspecialchars(Flux::message('AccountCreateGenderInfo')) ?>">?</strong>
 				</p>
 			</td>
@@ -79,14 +89,14 @@
 		
 		<tr>
 			<th><label><?php echo htmlspecialchars(Flux::message('AccountBirthdateLabel')) ?></label></th>
-			<td><?php echo $this->dateField('birthdate',null,0) ?></td>
+			<td><?php echo $this->dateField('birthdate', null, 0) ?></td>
 		</tr>
 		
 		<?php if (Flux::config('UseCaptcha')): ?>
 		<tr>
 			<?php if (Flux::config('EnableReCaptcha')): ?>
 			<th><label for="register_security_code"><?php echo htmlspecialchars(Flux::message('AccountSecurityLabel')) ?></label></th>
-			<td><div class="g-recaptcha" data-theme = "<?php echo $theme;?>" data-sitekey="<?php echo $recaptcha ?>"></div></td>
+			<td><div class="g-recaptcha" data-theme = "<?php echo $theme; ?>" data-sitekey="<?php echo $recaptcha ?>"></div></td>
 			<?php else: ?>
 			<th><label for="register_security_code"><?php echo htmlspecialchars(Flux::message('AccountSecurityLabel')) ?></label></th>
 			<td>

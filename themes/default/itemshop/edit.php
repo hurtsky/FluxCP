@@ -1,5 +1,7 @@
 <?php
-if (!defined('FLUX_ROOT')) exit;
+if (!defined('FLUX_ROOT')) {
+    exit;
+}
 ?>
 <h2>Item Shop</h2>
 <h3>Modify Item in the Shop</h3>
@@ -28,9 +30,13 @@ if (!defined('FLUX_ROOT')) exit;
 		<th><label for="category">Category</label></th>
 		<td>
 			<select name="category" id="category">
-				<option value="none"<?php if (is_null($category) || strtolower($category) == 'none') echo ' selected="selected"' ?>><?php echo htmlspecialchars(Flux::message('NoneLabel')) ?></option>
+				<option value="none"<?php if (is_null($category) || strtolower($category) == 'none') {
+    echo ' selected="selected"';
+} ?>><?php echo htmlspecialchars(Flux::message('NoneLabel')) ?></option>
 				<?php foreach ($categories as $categoryID => $cat): ?>
-					<option value="<?php echo (int)$categoryID ?>"<?php if ($category === (string)$categoryID) echo ' selected="selected"' ?>><?php echo htmlspecialchars($cat) ?></option>
+					<option value="<?php echo (int) $categoryID ?>"<?php if ($category === (string) $categoryID) {
+    echo ' selected="selected"';
+} ?>><?php echo htmlspecialchars($cat) ?></option>
 				<?php endforeach ?>
 			</select>
 		</td>
@@ -55,12 +61,14 @@ if (!defined('FLUX_ROOT')) exit;
 		<th><label for="image">Image</label></th>
 		<td>
 			<input type="file" name="image" id="image" />
-			<label>Attempt to use existing item image? <input type="checkbox" name="use_existing" value="1"<?php if ($item->shop_item_use_existing) echo ' checked="checked"' ?> /></label>
-			<?php if ($image=$this->shopItemImage($item->shop_item_id)): ?>
+			<label>Attempt to use existing item image? <input type="checkbox" name="use_existing" value="1"<?php if ($item->shop_item_use_existing) {
+    echo ' checked="checked"';
+} ?> /></label>
+			<?php if ($image = $this->shopItemImage($item->shop_item_id)): ?>
 			<p>
 				Current image:
 				<?php if ($auth->actionAllowed('itemshop', 'imagedel')): ?>
-					<a href="<?php echo $this->url('itemshop', 'imagedel', array('id' => $item->shop_item_id)) ?>">(Delete)</a>
+					<a href="<?php echo $this->url('itemshop', 'imagedel', ['id' => $item->shop_item_id]) ?>">(Delete)</a>
 				<?php endif ?>
 			</p>
 			<p><img src="<?php echo $image ?>" /></p>

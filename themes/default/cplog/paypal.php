@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>PayPal Transactions</h2>
 <p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
 <form action="<?php echo $this->url ?>" method="get" class="search-form">
@@ -19,17 +21,29 @@
 	<p>
 		<label for="amount">Amount:</label>
 		<select name="amount_op">
-			<option value="eq"<?php if (($amount_op=$params->get('amount_op')) == 'eq') echo ' selected="selected"' ?>>is equal to</option>
-			<option value="gt"<?php if ($amount_op == 'gt') echo ' selected="selected"' ?>>is greater than</option>
-			<option value="lt"<?php if ($amount_op == 'lt') echo ' selected="selected"' ?>>is less than</option>
+			<option value="eq"<?php if (($amount_op = $params->get('amount_op')) == 'eq') {
+    echo ' selected="selected"';
+} ?>>is equal to</option>
+			<option value="gt"<?php if ($amount_op == 'gt') {
+    echo ' selected="selected"';
+} ?>>is greater than</option>
+			<option value="lt"<?php if ($amount_op == 'lt') {
+    echo ' selected="selected"';
+} ?>>is less than</option>
 		</select>
 		<input type="text" name="amount" id="amount" value="<?php echo htmlspecialchars($params->get('amount')) ?>" />
 		...
 		<label for="credits">Credits:</label>
 		<select name="credits_op">
-			<option value="eq"<?php if (($credits_op=$params->get('credits_op')) == 'eq') echo ' selected="selected"' ?>>is equal to</option>
-			<option value="gt"<?php if ($credits_op == 'gt') echo ' selected="selected"' ?>>is greater than</option>
-			<option value="lt"<?php if ($credits_op == 'lt') echo ' selected="selected"' ?>>is less than</option>
+			<option value="eq"<?php if (($credits_op = $params->get('credits_op')) == 'eq') {
+    echo ' selected="selected"';
+} ?>>is equal to</option>
+			<option value="gt"<?php if ($credits_op == 'gt') {
+    echo ' selected="selected"';
+} ?>>is greater than</option>
+			<option value="lt"<?php if ($credits_op == 'lt') {
+    echo ' selected="selected"';
+} ?>>is less than</option>
 		</select>
 		<input type="text" name="credits" id="credits" value="<?php echo htmlspecialchars($params->get('credits')) ?>" />
 		...
@@ -38,18 +52,26 @@
 	</p>
 	<p>
 		<label for="use_processed_after">Process Date Between:</label>
-		<input type="checkbox" name="use_processed_after" id="use_processed_after"<?php if ($params->get('use_processed_after')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_processed_after" id="use_processed_after"<?php if ($params->get('use_processed_after')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('processed_after') ?>
 		<label for="use_processed_before">&mdash;</label>
-		<input type="checkbox" name="use_processed_before" id="use_processed_before"<?php if ($params->get('use_processed_before')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_processed_before" id="use_processed_before"<?php if ($params->get('use_processed_before')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('processed_before') ?>
 	</p>
 	<p>
 		<label for="use_received_after">Receive Date Between:</label>
-		<input type="checkbox" name="use_received_after" id="use_received_after"<?php if ($params->get('use_received_after')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_received_after" id="use_received_after"<?php if ($params->get('use_received_after')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('received_after') ?>
 		<label for="use_received_before">&mdash;</label>
-		<input type="checkbox" name="use_received_before" id="use_received_before"<?php if ($params->get('use_received_before')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_received_before" id="use_received_before"<?php if ($params->get('use_received_before')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('received_before') ?>
 		
 		<input type="submit" value="Search" />
@@ -76,7 +98,7 @@
 		<td align="right">
 			<strong>
 				<?php if ($auth->actionAllowed('logdata', 'txnview')): ?>
-					<a href="<?php echo $this->url($params->get('module'), 'txnview', array('id' => $txn->id)) ?>">
+					<a href="<?php echo $this->url($params->get('module'), 'txnview', ['id' => $txn->id]) ?>">
 						<?php echo $txn->txn_id ?>
 					</a>
 				<?php else: ?>
@@ -87,7 +109,7 @@
 		<td>
 			<?php if ($txn->parent_id): ?>
 				<?php if ($auth->actionAllowed('logdata', 'txnview')): ?>
-					<a href="<?php echo $this->url($params->get('module'), 'txnview', array('id' => $txn->parent_id)) ?>"><?php echo $txn->parent_txn_id ?></a>
+					<a href="<?php echo $this->url($params->get('module'), 'txnview', ['id' => $txn->parent_id]) ?>"><?php echo $txn->parent_txn_id ?></a>
 				<?php else: ?>
 					<?php echo $txn->parent_txn_id ?>
 				<?php endif ?>
@@ -100,13 +122,13 @@
 		<td><?php echo $txn->payment_status ?></td>
 		<td>
 			<?php if ($auth->actionAllowed('account', 'index')): ?>
-				<?php echo $this->linkToAccountSearch(array('email' => $txn->payer_email), $txn->payer_email) ?>
+				<?php echo $this->linkToAccountSearch(['email' => $txn->payer_email], $txn->payer_email) ?>
 			<?php else: ?>
 				<?php echo htmlspecialchars($txn->payer_email) ?>
 			<?php endif ?>
 		</td>
 		<td><?php echo $txn->mc_gross ?> <?php echo $txn->mc_currency ?></td>
-		<td><?php echo number_format((int)$txn->credits) ?></td>
+		<td><?php echo number_format((int) $txn->credits) ?></td>
 		<!--<td><?php echo htmlspecialchars($txn->server_name) ?></td>-->
 		<td>
 			<?php if ($txn->account_id): ?>

@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('LoginHeading')) ?></h2>
 <?php if (isset($errorMessage)): ?>
 <p class="red"><?php echo htmlspecialchars($errorMessage) ?></p>
@@ -9,7 +11,7 @@
 <?php endif ?>
 
 <?php endif ?>
-<form action="<?php echo $this->url('account', 'login', array('return_url' => $params->get('return_url'))) ?>" method="post" class="generic-form">
+<form action="<?php echo $this->url('account', 'login', ['return_url' => $params->get('return_url')]) ?>" method="post" class="generic-form">
 	<?php if (count($serverNames) === 1): ?>
 	<input type="hidden" name="server" value="<?php echo htmlspecialchars($session->loginAthenaGroup->serverName) ?>">
 	<?php endif ?>
@@ -26,7 +28,9 @@
 		<tr>
 			<th><label for="login_server"><?php echo htmlspecialchars(Flux::message('AccountServerLabel')) ?></label></th>
 			<td>
-				<select name="server" id="login_server"<?php if (count($serverNames) === 1) echo ' disabled="disabled"' ?>>
+				<select name="server" id="login_server"<?php if (count($serverNames) === 1) {
+    echo ' disabled="disabled"';
+} ?>>
 					<?php foreach ($serverNames as $serverName): ?>
 					<option value="<?php echo htmlspecialchars($serverName) ?>"><?php echo htmlspecialchars($serverName) ?></option>
 					<?php endforeach ?>
@@ -38,7 +42,7 @@
 		<tr>
 			<?php if (Flux::config('EnableReCaptcha')): ?>
 			<th><label for="register_security_code"><?php echo htmlspecialchars(Flux::message('AccountSecurityLabel')) ?></label></th>
-			<td><div class="g-recaptcha" data-theme = "<?php echo $theme;?>" data-sitekey="<?php echo $recaptcha ?>"></div></td>
+			<td><div class="g-recaptcha" data-theme = "<?php echo $theme; ?>" data-sitekey="<?php echo $recaptcha ?>"></div></td>
 			<?php else: ?>
 			<th><label for="register_security_code"><?php echo htmlspecialchars(Flux::message('AccountSecurityLabel')) ?></label></th>
 			<td>

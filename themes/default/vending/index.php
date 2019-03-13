@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Vendors</h2>
 
 <?php if ($vendings): ?>
@@ -20,7 +22,7 @@
                 <tr>
                     <td width="50" align="right"  style="">
                         <?php if ($auth->actionAllowed('vending', 'viewshop')): ?>
-                            <a href="<?php echo $this->url('vending', 'viewshop', array("id" => $vending->id)); ?>"><?php echo $vending->id; ?></a>
+                            <a href="<?php echo $this->url('vending', 'viewshop', ['id' => $vending->id]); ?>"><?php echo $vending->id; ?></a>
                         <?php else: ?>
                             <?php echo $vending->id ?>
                         <?php endif ?>
@@ -30,7 +32,7 @@
                     <td>
                        <img src="<?php echo $this->iconImage(671) ?>?nocache=<?php echo rand() ?>" />
                       <?php if ($auth->actionAllowed('vending', 'viewshop')): ?>
-                            <a href="<?php echo $this->url('vending', 'viewshop', array("id" => $vending->id)); ?>"><?php echo $vending->title; ?></a>
+                            <a href="<?php echo $this->url('vending', 'viewshop', ['id' => $vending->id]); ?>"><?php echo $vending->title; ?></a>
                         <?php else: ?>
                             <?php echo $vending->title ?>
                         <?php endif ?>
