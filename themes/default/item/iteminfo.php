@@ -18,7 +18,7 @@
 		<th>upload_max_filesize</th><td><?php echo ini_get('upload_max_filesize') ?></td>
 	</tr>
 </table>
-<p>ShowItemDesc is <?php if(Flux::config('ShowItemDesc')):?>enabled<?php else: ?>disabled<?php endif ?> in your configuration file.</p>
+<p>ShowItemDesc is <?php if (Flux::config('ShowItemDesc')):?>enabled<?php else: ?>disabled<?php endif ?> in your configuration file.</p>
 
 <h3>Upload itemInfo.lua</h3>
 <form class="forms" method="post" enctype="multipart/form-data">

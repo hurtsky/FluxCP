@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('HistoryCpLoginHeading')) ?></h2>
 <?php if ($logins): ?>
 <?php echo $paginator->infoText() ?>
@@ -13,7 +15,7 @@
 		<td><?php echo $this->formatDateTime($login->login_date) ?></td>
 		<td>
 		<?php if ($auth->actionAllowed('account', 'index')): ?>
-			<?php echo $this->linkToAccountSearch(array('last_ip' => $login->ip), $login->ip) ?>
+			<?php echo $this->linkToAccountSearch(['last_ip' => $login->ip], $login->ip) ?>
 		<?php else: ?>
 			<?php echo htmlspecialchars($login->ip) ?>
 		<?php endif ?>

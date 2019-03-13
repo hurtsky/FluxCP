@@ -1,22 +1,32 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Password Resets</h2>
 <p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
 <form action="<?php echo $this->url ?>" method="get" class="search-form">
 	<?php echo $this->moduleActionFormInputs($params->get('module'), $params->get('action')) ?>
 	<p>
 		<label for="use_request_after">Request Date Between:</label>
-		<input type="checkbox" name="use_request_after" id="use_request_after"<?php if ($params->get('use_request_after')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_request_after" id="use_request_after"<?php if ($params->get('use_request_after')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('request_after') ?>
 		<label for="use_request_before">&mdash;</label>
-		<input type="checkbox" name="use_request_before" id="use_request_before"<?php if ($params->get('use_request_before')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_request_before" id="use_request_before"<?php if ($params->get('use_request_before')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('request_before') ?>
 	</p>
 	<p>
 		<label for="use_reset_after">Reset Date Between:</label>
-		<input type="checkbox" name="use_reset_after" id="use_reset_after"<?php if ($params->get('use_reset_after')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_reset_after" id="use_reset_after"<?php if ($params->get('use_reset_after')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('reset_after') ?>
 		<label for="use_reset_before">&mdash;</label>
-		<input type="checkbox" name="use_reset_before" id="use_reset_before"<?php if ($params->get('use_reset_before')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_reset_before" id="use_reset_before"<?php if ($params->get('use_reset_before')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('reset_before') ?>
 	</p>
 	<p>
@@ -88,7 +98,7 @@
 		<td><?php echo $this->formatDateTime($reset->request_date) ?></td>
 		<td>
 			<?php if ($auth->actionAllowed('account', 'index')): ?>
-				<?php echo $this->linkToAccountSearch(array('last_ip' => $reset->request_ip), $reset->request_ip) ?>
+				<?php echo $this->linkToAccountSearch(['last_ip' => $reset->request_ip], $reset->request_ip) ?>
 			<?php else: ?>
 				<?php echo htmlspecialchars($reset->request_ip) ?>
 			<?php endif ?>
@@ -103,7 +113,7 @@
 		<td>
 			<?php if ($reset->reset_ip): ?>
 				<?php if ($auth->actionAllowed('account', 'index')): ?>
-					<?php echo $this->linkToAccountSearch(array('last_ip' => $reset->reset_ip), $reset->reset_ip) ?>
+					<?php echo $this->linkToAccountSearch(['last_ip' => $reset->reset_ip], $reset->reset_ip) ?>
 				<?php else: ?>
 					<?php echo htmlspecialchars($reset->reset_ip) ?>
 				<?php endif ?>

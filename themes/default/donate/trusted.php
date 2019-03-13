@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Trusted PayPal E-mails</h2>
 <?php if ($emails): ?>
 <p>Below is a list of your trusted PayPal e-mail addresses.</p>

@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Monsters</h2>
 <p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
 <form class="search-form" method="get">
@@ -12,19 +14,29 @@
 		...
 		<label for="mvp">MVP:</label>
 		<select name="mvp" id="mvp">
-			<option value="all"<?php if (!($mvpParam=strtolower($params->get('mvp'))) || $mvpParam == 'all') echo ' selected="selected"' ?>>All</option>
-			<option value="yes"<?php if ($mvpParam == 'yes') echo ' selected="selected"' ?>>Yes</option>
-			<option value="no"<?php if ($mvpParam == 'no') echo ' selected="selected"' ?>>No</option>
+			<option value="all"<?php if (!($mvpParam = strtolower($params->get('mvp'))) || $mvpParam == 'all') {
+    echo ' selected="selected"';
+} ?>>All</option>
+			<option value="yes"<?php if ($mvpParam == 'yes') {
+    echo ' selected="selected"';
+} ?>>Yes</option>
+			<option value="no"<?php if ($mvpParam == 'no') {
+    echo ' selected="selected"';
+} ?>>No</option>
 		</select>
 	</p>
 	<p>
 		<label for="size">Size:</label>
 		<select name="size">
-			<option value="-1"<?php if (($size=$params->get('size')) === '-1') echo ' selected="selected"' ?>>
+			<option value="-1"<?php if (($size = $params->get('size')) === '-1') {
+    echo ' selected="selected"';
+} ?>>
 				Any
 			</option>
 			<?php foreach (Flux::config('MonsterSizes')->toArray() as $sizeId => $sizeName): ?>
-				<option value="<?php echo $sizeId ?>"<?php if (($size=$params->get('size')) === strval($sizeId)) echo ' selected="selected"' ?>>
+				<option value="<?php echo $sizeId ?>"<?php if (($size = $params->get('size')) === strval($sizeId)) {
+    echo ' selected="selected"';
+} ?>>
 					<?php echo htmlspecialchars($sizeName) ?>
 				</option>
 			<?php endforeach ?>
@@ -32,11 +44,15 @@
 		...
 		<label for="race">Race:</label>
 		<select name="race">
-			<option value="-1"<?php if (($race=$params->get('race')) === '-1') echo ' selected="selected"' ?>>
+			<option value="-1"<?php if (($race = $params->get('race')) === '-1') {
+    echo ' selected="selected"';
+} ?>>
 				Any
 			</option>
 			<?php foreach (Flux::config('MonsterRaces')->toArray() as $raceId => $raceName): ?>
-				<option value="<?php echo $raceId ?>"<?php if (($race=$params->get('race')) === strval($raceId)) echo ' selected="selected"' ?>>
+				<option value="<?php echo $raceId ?>"<?php if (($race = $params->get('race')) === strval($raceId)) {
+    echo ' selected="selected"';
+} ?>>
 					<?php echo htmlspecialchars($raceName) ?>
 				</option>
 			<?php endforeach ?>
@@ -44,16 +60,22 @@
 		...
 		<label for="element">Element:</label>
 		<select name="element">
-			<option value="-1"<?php if (($element=$params->get('element')) === '-1') echo ' selected="selected"' ?>>
+			<option value="-1"<?php if (($element = $params->get('element')) === '-1') {
+    echo ' selected="selected"';
+} ?>>
 				Any
 			</option>
 			<?php foreach (Flux::config('Elements')->toArray() as $elementId => $elementName): ?>
-				<option value="<?php echo $elementId ?>"<?php if (($element=$params->get('element')) === strval($elementId)) echo ' selected="selected"' ?>>
+				<option value="<?php echo $elementId ?>"<?php if (($element = $params->get('element')) === strval($elementId)) {
+    echo ' selected="selected"';
+} ?>>
 					<?php echo htmlspecialchars($elementName) ?>
 				</option>
 				<?php for ($elementLevel = 1; $elementLevel <= 4; $elementLevel++): ?>
-					<option value="<?php echo $elementId ?>-<?php echo $elementLevel ?>"<?php if (($element=$params->get('element')) === ($elementId . '-' . $elementLevel)) echo ' selected="selected"' ?>>
-						<?php echo htmlspecialchars($elementName . " (Lv $elementLevel)") ?>
+					<option value="<?php echo $elementId ?>-<?php echo $elementLevel ?>"<?php if (($element = $params->get('element')) === ($elementId.'-'.$elementLevel)) {
+    echo ' selected="selected"';
+} ?>>
+						<?php echo htmlspecialchars($elementName." (Lv $elementLevel)") ?>
 					</option>
 				<?php endfor ?>
 			<?php endforeach ?>
@@ -65,9 +87,15 @@
 		...
 		<label for="custom">Custom:</label>
 		<select name="custom" id="custom">
-			<option value=""<?php if (!($custom=$params->get('custom'))) echo ' selected="selected"' ?>>All</option>
-			<option value="yes"<?php if ($custom == 'yes') echo ' selected="selected"' ?>>Yes</option>
-			<option value="no"<?php if ($custom == 'no') echo ' selected="selected"' ?>>No</option>
+			<option value=""<?php if (!($custom = $params->get('custom'))) {
+    echo ' selected="selected"';
+} ?>>All</option>
+			<option value="yes"<?php if ($custom == 'yes') {
+    echo ' selected="selected"';
+} ?>>Yes</option>
+			<option value="no"<?php if ($custom == 'no') {
+    echo ' selected="selected"';
+} ?>>No</option>
 		</select>
 		
 		<input type="submit" value="Search" />
@@ -110,14 +138,14 @@
 		<td><?php echo number_format($monster->level) ?></td>
 		<td><?php echo number_format($monster->hp) ?></td>
 		<td>
-			<?php if ($size=Flux::monsterSizeName($monster->size)): ?>
+			<?php if ($size = Flux::monsterSizeName($monster->size)): ?>
 				<?php echo htmlspecialchars($size) ?>
 			<?php else: ?>
 				<span class="not-applicable">Unknown</span>
 			<?php endif ?>
 		</td>
 		<td>
-			<?php if ($race=Flux::monsterRaceName($monster->race)): ?>
+			<?php if ($race = Flux::monsterRaceName($monster->race)): ?>
 				<?php echo htmlspecialchars($race) ?>
 			<?php else: ?>
 				<span class="not-applicable">Unknown</span>

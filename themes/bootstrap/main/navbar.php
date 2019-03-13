@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">

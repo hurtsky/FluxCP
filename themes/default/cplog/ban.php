@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Account Bans</h2>
 <p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
 <form action="<?php echo $this->url ?>" method="get" class="search-form">
@@ -12,18 +14,28 @@
 		...
 		<label for="ban_type">Ban Type:</label>
 		<select name="ban_type" id="ban_type">
-			<option value=""<?php if (!($ban_type=$params->get('ban_type'))) echo ' selected="selected"' ?>><?php echo htmlspecialchars(Flux::message('AllLabel')) ?></option>
-			<option value="unban"<?php if ($ban_type == 'unban') echo ' selected="selected"' ?>>Unban</option>
-			<option value="ban"<?php if ($ban_type == 'ban') echo ' selected="selected"' ?>>Ban</option>
+			<option value=""<?php if (!($ban_type = $params->get('ban_type'))) {
+    echo ' selected="selected"';
+} ?>><?php echo htmlspecialchars(Flux::message('AllLabel')) ?></option>
+			<option value="unban"<?php if ($ban_type == 'unban') {
+    echo ' selected="selected"';
+} ?>>Unban</option>
+			<option value="ban"<?php if ($ban_type == 'ban') {
+    echo ' selected="selected"';
+} ?>>Ban</option>
 		</select>
 	</p>
 	<p>
 		<label for="use_ban">Ban Date:</label>
-		<input type="checkbox" name="use_ban" id="use_ban"<?php if ($params->get('use_ban')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_ban" id="use_ban"<?php if ($params->get('use_ban')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateTimeField('ban') ?>
 		...
 		<label for="use_ban_until">Ban Until:</label>
-		<input type="checkbox" name="use_ban_until" id="use_ban_until"<?php if ($params->get('use_ban_until')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_ban_until" id="use_ban_until"<?php if ($params->get('use_ban_until')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateTimeField('ban_until') ?>
 	</p>
 	<p>

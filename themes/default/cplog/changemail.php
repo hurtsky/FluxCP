@@ -1,22 +1,32 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>E-mail Changes</h2>
 <p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
 <form action="<?php echo $this->url ?>" method="get" class="search-form">
 	<?php echo $this->moduleActionFormInputs($params->get('module'), $params->get('action')) ?>
 	<p>
 		<label for="use_request_after">Request Date Between:</label>
-		<input type="checkbox" name="use_request_after" id="use_request_after"<?php if ($params->get('use_request_after')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_request_after" id="use_request_after"<?php if ($params->get('use_request_after')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('request_after') ?>
 		<label for="use_request_before">&mdash;</label>
-		<input type="checkbox" name="use_request_before" id="use_request_before"<?php if ($params->get('use_request_before')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_request_before" id="use_request_before"<?php if ($params->get('use_request_before')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('request_before') ?>
 	</p>
 	<p>
 		<label for="use_change_after">Change Date Between:</label>
-		<input type="checkbox" name="use_change_after" id="use_change_after"<?php if ($params->get('use_change_after')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_change_after" id="use_change_after"<?php if ($params->get('use_change_after')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('change_after') ?>
 		<label for="use_change_before">&mdash;</label>
-		<input type="checkbox" name="use_change_before" id="use_change_before"<?php if ($params->get('use_change_before')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_change_before" id="use_change_before"<?php if ($params->get('use_change_before')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('change_before') ?>
 	</p>
 	<p>
@@ -74,14 +84,14 @@
 		</td>
 		<td>
 		<?php if ($auth->actionAllowed('account', 'index')): ?>
-			<?php echo $this->linkToAccountSearch(array('email' => $change->old_email), $change->old_email) ?>
+			<?php echo $this->linkToAccountSearch(['email' => $change->old_email], $change->old_email) ?>
 		<?php else: ?>
 			<?php echo htmlspecialchars($change->old_email) ?>
 		<?php endif ?>
 		</td>
 		<td>
 		<?php if ($auth->actionAllowed('account', 'index')): ?>
-			<?php echo $this->linkToAccountSearch(array('email' => $change->new_email), $change->new_email) ?>
+			<?php echo $this->linkToAccountSearch(['email' => $change->new_email], $change->new_email) ?>
 		<?php else: ?>
 			<?php echo htmlspecialchars($change->new_email) ?>
 		<?php endif ?>
@@ -89,7 +99,7 @@
 		<td><?php echo $this->formatDateTime($change->request_date) ?></td>
 		<td>
 			<?php if ($auth->actionAllowed('account', 'index')): ?>
-				<?php echo $this->linkToAccountSearch(array('last_ip' => $change->request_ip), $change->request_ip) ?>
+				<?php echo $this->linkToAccountSearch(['last_ip' => $change->request_ip], $change->request_ip) ?>
 			<?php else: ?>
 				<?php echo htmlspecialchars($change->request_ip) ?>
 			<?php endif ?>
@@ -104,7 +114,7 @@
 		<td>
 			<?php if ($change->change_ip): ?>
 				<?php if ($auth->actionAllowed('account', 'index')): ?>
-					<?php echo $this->linkToAccountSearch(array('last_ip' => $change->change_ip), $change->change_ip) ?>
+					<?php echo $this->linkToAccountSearch(['last_ip' => $change->change_ip], $change->change_ip) ?>
 				<?php else: ?>
 					<?php echo htmlspecialchars($change->change_ip) ?>
 				<?php endif ?>

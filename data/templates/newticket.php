@@ -1,5 +1,7 @@
 <?php
-if (!defined('FLUX_ROOT')) exit;
+if (!defined('FLUX_ROOT')) {
+    exit;
+}
 $emailTitle = sprintf('New Ticket Created');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"

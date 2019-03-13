@@ -1,5 +1,7 @@
 <?php
-if (!defined('FLUX_ROOT')) exit;
+if (!defined('FLUX_ROOT')) {
+    exit;
+}
 $this->loginRequired();
 ?>
 <h2><?php echo htmlspecialchars(Flux::message('SDHeader')) ?></h2>
@@ -8,7 +10,7 @@ $this->loginRequired();
 		<a href="<?php echo $this->url('servicedesk', 'create') ?>"><?php echo Flux::message('SDLinkOpenNew') ?></a>
 </p>
 <h3><?php echo Flux::message('SDH3ActiveTickets') ?></h3>
-<?php if($rowoutput): ?>
+<?php if ($rowoutput): ?>
 	<table class="horizontal-table" width="100%"> 
 		<tbody>
 		<tr>
@@ -29,7 +31,7 @@ $this->loginRequired();
 	</p>
 <?php endif ?><br /><Br />
 <h3><?php echo Flux::message('SDH3InActiveTickets') ?></h3>
-<?php if($oldrowoutput): ?>
+<?php if ($oldrowoutput): ?>
 	<table class="horizontal-table" width="100%"> 
 		<tbody>
 		<tr>

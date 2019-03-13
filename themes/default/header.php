@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -7,7 +9,9 @@
 		<?php if (isset($metaRefresh)): ?>
 		<meta http-equiv="refresh" content="<?php echo $metaRefresh['seconds'] ?>; URL=<?php echo $metaRefresh['location'] ?>" />
 		<?php endif ?>
-		<title><?php echo Flux::config('SiteTitle'); if (isset($title)) echo ": $title" ?></title>
+		<title><?php echo Flux::config('SiteTitle'); if (isset($title)) {
+    echo ": $title";
+} ?></title>
 		<link rel="stylesheet" href="<?php echo $this->themePath('css/flux.css') ?>" type="text/css" media="screen" title="" charset="utf-8" />
 		<link href="<?php echo $this->themePath('css/flux/unitip.css') ?>" rel="stylesheet" type="text/css" media="screen" title="" charset="utf-8" />
 		<?php if (Flux::config('EnableReCaptcha')): ?>
@@ -157,7 +161,7 @@
 								<?php endif ?>
 								
 								<!-- Messages -->
-								<?php if ($message=$session->getMessage()): ?>
+								<?php if ($message = $session->getMessage()): ?>
 									<p class="message"><?php echo htmlspecialchars($message) ?></p>
 								<?php endif ?>
 								
@@ -168,4 +172,6 @@
 								<?php include $this->themePath('main/pagemenu.php', true) ?>
 								
 								<!-- Credit balance -->
-								<?php if (in_array($params->get('module'), array('donate', 'purchase'))) include $this->themePath('main/balance.php', true) ?>
+								<?php if (in_array($params->get('module'), ['donate', 'purchase'])) {
+    include $this->themePath('main/balance.php', true);
+} ?>

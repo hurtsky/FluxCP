@@ -1,10 +1,12 @@
 <?php
-if (!defined('FLUX_ROOT')) exit;
+if (!defined('FLUX_ROOT')) {
+    exit;
+}
 $this->loginRequired();
 ?>
 <h2>Category Control</h2>
 <h3><?php echo Flux::message('SDH3CurrentCat') ?></h3>
-<?php if($catlist): ?>
+<?php if ($catlist): ?>
 	<table class="horizontal-table" width="100%"> 
 		<tbody>
 		<tr>
@@ -13,25 +15,25 @@ $this->loginRequired();
 			<th>Display?</th>
 			<th>Options</th>
 		</tr>
-		<?php foreach($catlist as $trow):?>
+		<?php foreach ($catlist as $trow):?>
 			<tr >
 				<td><?php echo $trow->cat_id?></td>
 				<td><?php echo $trow->name?></td>
 				<td>
-					<?php if($trow->display=='1'): ?>
+					<?php if ($trow->display == '1'): ?>
 					Yes
 					<?php else: ?>
 					<i>Hidden</i>
 					<?php endif ?></td>
 				<td>
-					<?php if($trow->display=='1'): ?>
-						<a href="<?php echo $this->url('servicedesk', 'catcontrol', array('option' => 'hide', 'catid' => $trow->cat_id))?>" >Hide</a>
+					<?php if ($trow->display == '1'): ?>
+						<a href="<?php echo $this->url('servicedesk', 'catcontrol', ['option' => 'hide', 'catid' => $trow->cat_id])?>" >Hide</a>
 					<?php else: ?>
-						<a href="<?php echo $this->url('servicedesk', 'catcontrol', array('option' => 'show', 'catid' => $trow->cat_id))?>" >Show</a>
+						<a href="<?php echo $this->url('servicedesk', 'catcontrol', ['option' => 'show', 'catid' => $trow->cat_id])?>" >Show</a>
 					<?php endif ?>
 				</td>
 			</tr>
-		<?php endforeach;?>
+		<?php endforeach; ?>
 		</tbody>
 	</table>
 <?php else: ?>

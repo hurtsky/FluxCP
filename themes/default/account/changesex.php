@@ -1,9 +1,11 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('GenderChangeHeading')) ?></h2>
 <?php if ($cost): ?>
 <p>
-	<?php printf(Flux::message('GenderChangeCost'), '<span class="remaining-balance">'.number_format((int)$cost).'</span>') ?>
-	<?php printf(Flux::message('GenderChangeBalance'), '<span class="remaining-balance">'.number_format((int)$session->account->balance).'</span>') ?>
+	<?php printf(Flux::message('GenderChangeCost'), '<span class="remaining-balance">'.number_format((int) $cost).'</span>') ?>
+	<?php printf(Flux::message('GenderChangeBalance'), '<span class="remaining-balance">'.number_format((int) $session->account->balance).'</span>') ?>
 </p>
 <?php if (!$hasNecessaryFunds): ?>
 <p><?php echo htmlspecialchars(Flux::message('GenderChangeNoFunds')) ?></p>

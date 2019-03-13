@@ -1,10 +1,12 @@
 <?php
-if (!defined('FLUX_ROOT')) exit;
+if (!defined('FLUX_ROOT')) {
+    exit;
+}
 $this->loginRequired();
 ?>
 <h2>Staff Settings</h2>
 <h3><?php echo Flux::message('SDH3StaffList') ?></h3>
-<?php if($stafflist): ?>
+<?php if ($stafflist): ?>
 	<table class="horizontal-table" width="100%"> 
 		<tbody>
 		<tr>
@@ -12,31 +14,31 @@ $this->loginRequired();
 			<th>Preferred Name</th>
 			<th>Team</th>
 			<th>Enable Emails</th>
-			<?php if(isset($staffsess) && $staffsess->team>'1'): ?>
+			<?php if (isset($staffsess) && $staffsess->team > '1'): ?>
 			<th>Options</th>
 			<?php endif ?>
 		</tr>
-		<?php foreach($stafflist as $trow):?>
+		<?php foreach ($stafflist as $trow):?>
 			<tr >
 				<td><?php echo $trow->account_name?></td>
 				<td><?php echo $trow->prefered_name?></td>
-				<td><?php echo Flux::message('SDGroup'. $trow->team) ?></td>
+				<td><?php echo Flux::message('SDGroup'.$trow->team) ?></td>
 				<td>
-					<?php if($trow->emailalerts=='1'): ?>
+					<?php if ($trow->emailalerts == '1'): ?>
 					Yes
 					<?php else: ?>
 					No
 					<?php endif ?>
 					
-					<?php if($trow->account_id==$session->account->account_id): ?>
-						<a href="<?php echo $this->url('servicedesk', 'staffsettings', array('option' => 'alerttoggle', 'staffid' => $trow->account_id, 'cur' => $trow->emailalerts))?>" ><i>(toggle)</i></a>
+					<?php if ($trow->account_id == $session->account->account_id): ?>
+						<a href="<?php echo $this->url('servicedesk', 'staffsettings', ['option' => 'alerttoggle', 'staffid' => $trow->account_id, 'cur' => $trow->emailalerts])?>" ><i>(toggle)</i></a>
 					<?php endif ?>
 					</td>
-				<?php if(isset($staffsess) && $staffsess->team>'1'): ?>
-				<td><a href="<?php echo $this->url('servicedesk', 'staffsettings', array('option' => 'delete', 'staffid' => $trow->account_id))?>" >Delete</a></td>
+				<?php if (isset($staffsess) && $staffsess->team > '1'): ?>
+				<td><a href="<?php echo $this->url('servicedesk', 'staffsettings', ['option' => 'delete', 'staffid' => $trow->account_id])?>" >Delete</a></td>
 				<?php endif ?>
 			</tr>
-		<?php endforeach;?>
+		<?php endforeach; ?>
 		</tbody>
 	</table>
 <?php else: ?>

@@ -1,7 +1,9 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Guild Ranking</h2>
 <h3>
-	Top <?php echo number_format($limit=(int)Flux::config('GuildRankingLimit')) ?> Guilds
+	Top <?php echo number_format($limit = (int) Flux::config('GuildRankingLimit')) ?> Guilds
 	on <?php echo htmlspecialchars($server->serverName) ?>
 </h3>
 <?php if ($guilds): ?>
@@ -15,14 +17,20 @@
 			<th>Average Level</th>
 			<th>Experience</th>
 		</tr>
-		<?php for ($i = 0; $i < $limit; ++$i): ?>
-		<tr<?php if (!isset($guilds[$i])) echo ' class="empty-row"'; if ($i === 0) echo ' class="top-ranked" title="<strong>'.htmlspecialchars($guilds[$i]->name).'</strong> is the top ranked guild!"' ?>>
+		<?php for ($i = 0; $i < $limit; $i++): ?>
+		<tr<?php if (!isset($guilds[$i])) {
+    echo ' class="empty-row"';
+} if ($i === 0) {
+    echo ' class="top-ranked" title="<strong>'.htmlspecialchars($guilds[$i]->name).'</strong> is the top ranked guild!"';
+} ?>>
 			<td align="right"><?php echo number_format($i + 1) ?></td>
 			<?php if (isset($guilds[$i])): ?>
 			<?php if ($guilds[$i]->emblem_len): ?>
 			<td width="24"><img src="<?php echo $this->emblem($guilds[$i]->guild_id) ?>" /></td>
 			<?php endif ?>
-			<td<?php if (!$guilds[$i]->emblem_len) echo ' colspan="2"' ?>><strong>
+			<td<?php if (!$guilds[$i]->emblem_len) {
+    echo ' colspan="2"';
+} ?>><strong>
 				<?php if ($auth->actionAllowed('guild', 'view') && $auth->allowedToViewGuild): ?>
 					<?php echo $this->linkToGuild($guilds[$i]->guild_id, $guilds[$i]->name) ?>
 				<?php else: ?>

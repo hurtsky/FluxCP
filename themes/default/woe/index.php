@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('WoeHeading')) ?></h2>
 <?php if ($woeTimes): ?>
 <p><?php echo htmlspecialchars(sprintf(Flux::message('WoeInfo'), $session->loginAthenaGroup->serverName)) ?></p>
@@ -10,7 +12,7 @@
 	</tr>
 	<?php foreach ($woeTimes as $serverName => $times): ?>
 	<tr>
-		<td class="server" rowspan="<?php echo count($times)+1 ?>">
+		<td class="server" rowspan="<?php echo count($times) + 1 ?>">
 			<?php echo htmlspecialchars($serverName)  ?>
 		</td>
 	</tr>

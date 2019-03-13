@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Viewing Guild</h2>
 <?php if ($guild): ?>
 <h3>Guild Information for “<?php echo htmlspecialchars($guild->name) ?>”</h3>
@@ -71,7 +73,7 @@
 			<th>Guild ID</th>
 			<th>Guild Name</th>
 		</tr>
-		<?php foreach ($alliances AS $alliance): ?>
+		<?php foreach ($alliances as $alliance): ?>
 		<tr>
 			<td align="right">
 				<?php if ($auth->allowedToViewGuild): ?>
@@ -95,7 +97,7 @@
 			<th>Guild ID</th>
 			<th>Guild Name</th>
 		</tr>
-		<?php foreach ($oppositions AS $opposition): ?>
+		<?php foreach ($oppositions as $opposition): ?>
 		<tr>
 			<td align="right">
 				<?php if ($auth->allowedToViewGuild): ?>
@@ -127,7 +129,7 @@
 			<th>Tax</th>
 			<th>Last Login</th>
 		</tr>
-		<?php foreach ($members AS $member): ?>
+		<?php foreach ($members as $member): ?>
 		<tr>
 			<td align="right">
 				<?php if ($auth->allowedToViewCharacter): ?>
@@ -137,7 +139,7 @@
 				<?php endif ?>
 			</td>
 			<td>
-				<?php if ($job=$this->jobClassText($member->class)): ?>
+				<?php if ($job = $this->jobClassText($member->class)): ?>
 					<?php echo htmlspecialchars($job) ?>
 				<?php else: ?>
 					<span class="not-applicable">Unknown</span>
@@ -150,11 +152,11 @@
 			<td><?php echo htmlspecialchars($member->position_name) ?></td>
 			<td>
 				<?php if ($member->mode == 17): ?>
-					<?php echo htmlspecialchars("Invite/Expel") ?>
+					<?php echo htmlspecialchars('Invite/Expel') ?>
 				<?php elseif ($member->mode == 16): ?>
-					<?php echo htmlspecialchars("Expel") ?>
+					<?php echo htmlspecialchars('Expel') ?>
 				<?php elseif ($member->mode == 1): ?>
-					<?php echo htmlspecialchars("Invite") ?>
+					<?php echo htmlspecialchars('Invite') ?>
 				<?php elseif ($member->mode == 0): ?>
 					<span class="not-applicable">None</span>
 				<?php else: ?>
@@ -178,7 +180,7 @@
 			<th>Character Name</th>
 			<th>Expulsion Reason</th>
 		</tr>
-		<?php foreach ($expulsions AS $expulsion): ?>
+		<?php foreach ($expulsions as $expulsion): ?>
 		<tr>
 			<td align="right">
 				<?php if ($auth->allowedToViewAccount): ?>
@@ -189,7 +191,7 @@
 			</td>
 			<td><?php echo htmlspecialchars($expulsion->name) ?></td>
 			<td>
-			<?php if($expulsion->mes): ?>
+			<?php if ($expulsion->mes): ?>
 				<?php echo htmlspecialchars($expulsion->mes) ?>
 			<?php else: ?>
 				<span class="not-applicable">None</span>
@@ -222,19 +224,25 @@
 				<th>Extra</th>
 				</th>
 			</tr>
-			<?php foreach ($items AS $item): ?>
+			<?php foreach ($items as $item): ?>
 			<?php $icon = $this->iconImage($item->nameid) ?>
 			<tr>
 				<td align="right"><?php echo $this->linkToItem($item->nameid, $item->nameid) ?></td>
 				<?php if ($icon): ?>
 				<td><img src="<?php echo htmlspecialchars($icon) ?>" /></td>
 				<?php endif ?>
-				<td<?php if (!$icon) echo ' colspan="2"' ?><?php if ($item->cardsOver) echo ' class="overslotted' . $item->cardsOver . '"'; else echo ' class="normalslotted"' ?>>
+				<td<?php if (!$icon) {
+    echo ' colspan="2"';
+} ?><?php if ($item->cardsOver) {
+    echo ' class="overslotted'.$item->cardsOver.'"';
+} else {
+    echo ' class="normalslotted"';
+} ?>>
 					<?php if ($item->refine > 0): ?>
 						+<?php echo htmlspecialchars($item->refine) ?>
 					<?php endif ?>
-					<?php if ($item->card0 == 255 && intval($item->card1/1280) > 0): ?>
-                        <?php $itemcard1 = intval($item->card1/1280); ?>
+					<?php if ($item->card0 == 255 && intval($item->card1 / 1280) > 0): ?>
+                        <?php $itemcard1 = intval($item->card1 / 1280); ?>
                         <?php for ($i = 0; $i < $itemcard1; $i++): ?>
 							Very
 						<?php endfor ?>
@@ -243,16 +251,16 @@
 					<?php if ($item->card0 == 254 || $item->card0 == 255): ?>
 						<?php if ($item->char_name): ?>
 							<?php if ($auth->actionAllowed('character', 'view') && ($isMine || (!$isMine && $auth->allowedToViewCharacter))): ?>
-								<?php echo $this->linkToCharacter($item->char_id, $item->char_name, $session->serverName) . "'s" ?>
+								<?php echo $this->linkToCharacter($item->char_id, $item->char_name, $session->serverName)."'s" ?>
 							<?php else: ?>
-								<?php echo htmlspecialchars($item->char_name . "'s") ?>
+								<?php echo htmlspecialchars($item->char_name."'s") ?>
 							<?php endif ?>
 						<?php else: ?>
 							<span class="not-applicable"><?php echo htmlspecialchars(Flux::message('UnknownLabel')) ?></span>'s
 						<?php endif ?>
 					<?php endif ?>
-					<?php if ($item->card0 == 255 && array_key_exists($item->card1%1280, $itemAttributes)): ?>
-						<?php echo htmlspecialchars($itemAttributes[$item->card1%1280]) ?>
+					<?php if ($item->card0 == 255 && array_key_exists($item->card1 % 1280, $itemAttributes)): ?>
+						<?php echo htmlspecialchars($itemAttributes[$item->card1 % 1280]) ?>
 					<?php endif ?>
 					<?php if ($item->name_japanese): ?>
 						<span class="item_name"><?php echo htmlspecialchars($item->name_japanese) ?></span>
@@ -260,7 +268,7 @@
 						<span class="not-applicable">Unknown Item</span>
 					<?php endif ?>
 					<?php if ($item->slots): ?>
-						<?php echo htmlspecialchars(' [' . $item->slots . ']') ?>
+						<?php echo htmlspecialchars(' ['.$item->slots.']') ?>
 					<?php endif ?>
 				</td>
 				<td><?php echo number_format($item->amount) ?></td>
@@ -279,7 +287,7 @@
 					<?php endif ?>
 				</td>
 				<td>
-					<?php if($item->card0 && ($item->type == 4 || $item->type == 5) && $item->card0 != 254 && $item->card0 != 255 && $item->card0 != -256): ?>
+					<?php if ($item->card0 && ($item->type == 4 || $item->type == 5) && $item->card0 != 254 && $item->card0 != 255 && $item->card0 != -256): ?>
 						<?php if (!empty($cards[$item->card0])): ?>
 							<?php echo $this->linkToItem($item->card0, $cards[$item->card0]) ?>
 						<?php else: ?>
@@ -290,7 +298,7 @@
 					<?php endif ?>
 				</td>
 				<td>
-					<?php if($item->card1 && ($item->type == 4 || $item->type == 5) && $item->card0 != 255 && $item->card0 != -256): ?>
+					<?php if ($item->card1 && ($item->type == 4 || $item->type == 5) && $item->card0 != 255 && $item->card0 != -256): ?>
 						<?php if (!empty($cards[$item->card1])): ?>
 							<?php echo $this->linkToItem($item->card1, $cards[$item->card1]) ?>
 						<?php else: ?>
@@ -301,7 +309,7 @@
 					<?php endif ?>
 				</td>
 				<td>
-					<?php if($item->card2 && ($item->type == 4 || $item->type == 5) && $item->card0 != 254 && $item->card0 != 255 && $item->card0 != -256): ?>
+					<?php if ($item->card2 && ($item->type == 4 || $item->type == 5) && $item->card0 != 254 && $item->card0 != 255 && $item->card0 != -256): ?>
 						<?php if (!empty($cards[$item->card2])): ?>
 							<?php echo $this->linkToItem($item->card2, $cards[$item->card2]) ?>
 						<?php else: ?>
@@ -312,7 +320,7 @@
 					<?php endif ?>
 				</td>
 				<td>
-					<?php if($item->card3 && ($item->type == 4 || $item->type == 5) && $item->card0 != 254 && $item->card0 != 255 && $item->card0 != -256): ?>
+					<?php if ($item->card3 && ($item->type == 4 || $item->type == 5) && $item->card0 != 254 && $item->card0 != 255 && $item->card0 != -256): ?>
 						<?php if (!empty($cards[$item->card3])): ?>
 							<?php echo $this->linkToItem($item->card3, $cards[$item->card3]) ?>
 						<?php else: ?>
@@ -323,13 +331,13 @@
 					<?php endif ?>
 				</td>
 			<td>
-			<?php if($item->bound == 1):?>
+			<?php if ($item->bound == 1):?>
 				Account Bound
-			<?php elseif($item->bound == 2):?>
+			<?php elseif ($item->bound == 2):?>
 				Guild Bound
-			<?php elseif($item->bound == 3):?>
+			<?php elseif ($item->bound == 3):?>
 				Party Bound
-			<?php elseif($item->bound == 4):?>
+			<?php elseif ($item->bound == 4):?>
 				Character Bound
 			<?php else:?>
 					<span class="not-applicable">None</span>

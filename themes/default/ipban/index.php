@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('IpbanListHeading')) ?></h2>
 <?php if ($banlist): ?>
 <?php echo $paginator->infoText() ?>
@@ -29,7 +31,7 @@
 			<?php endif ?>
 			<td>
 			<?php if ($auth->actionAllowed('account', 'index')): ?>
-				<?php echo $this->linkToAccountSearch(array('last_ip' => $list->list), $list->list) ?>
+				<?php echo $this->linkToAccountSearch(['last_ip' => $list->list], $list->list) ?>
 			<?php else: ?>
 				<?php echo htmlspecialchars($list->list) ?>
 			<?php endif ?>
@@ -50,10 +52,10 @@
 				<?php endif ?>
 			</td>
 			<?php if ($auth->allowedToModifyIpBan && $auth->actionAllowed('ipban', 'edit')): ?>
-			<td class="td-action action"><a href="<?php echo $this->url('ipban', 'edit', array('list' => $list->list)) ?>"><?php echo htmlspecialchars(Flux::message('IpbanModifyLink')) ?></a></td>
+			<td class="td-action action"><a href="<?php echo $this->url('ipban', 'edit', ['list' => $list->list]) ?>"><?php echo htmlspecialchars(Flux::message('IpbanModifyLink')) ?></a></td>
 			<?php endif ?>
 			<?php if ($auth->allowedToRemoveIpBan && $auth->actionAllowed('ipban', 'remove')): ?>
-			<td class="td-action action"><a href="<?php echo $this->url('ipban', 'remove', array('list' => $list->list)) ?>"><?php echo htmlspecialchars(Flux::message('IpbanRemoveLink')) ?></a></td>
+			<td class="td-action action"><a href="<?php echo $this->url('ipban', 'remove', ['list' => $list->list]) ?>"><?php echo htmlspecialchars(Flux::message('IpbanRemoveLink')) ?></a></td>
 			<?php endif ?>
 		</tr>
 		<?php endforeach ?>
@@ -64,8 +66,8 @@
 			<th><label for="reason"><?php echo htmlspecialchars(Flux::message('IpbanRemoveReasonLabel')) ?></label></th>
 			<td>
 				<textarea name="reason" id="reason" class="reason"><?php
-					echo htmlspecialchars(empty($reason) ? '' : $reason)
-				?></textarea>
+                    echo htmlspecialchars(empty($reason) ? '' : $reason)
+                ?></textarea>
 			</td>
 		</tr>
 		<tr>

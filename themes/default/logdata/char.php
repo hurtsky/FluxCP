@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('CharLogHeading')) ?></h2>
 <?php if ($chars1): ?>
 <?php echo $paginator->infoText() ?>

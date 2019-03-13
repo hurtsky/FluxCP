@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Add Item</h2>
 <p>The only required fields are the <em>Item ID</em>, <em>Identifier</em>, <em>Name</em> and <em>Type</em> fields.</p>
 <p><strong>Note:</strong> An empty <em>NPC Sell</em> price defaults to half of the buy price in-game.</p>
@@ -21,7 +23,9 @@
 			<td>
 				<select name="type" id="type">
 				<?php foreach (Flux::config('ItemTypes')->toArray() as $nameid => $typeName): ?>
-					<option value="<?php echo htmlspecialchars($nameid) ?>"<?php if ($nameid == $type) echo ' selected="selected"' ?>>
+					<option value="<?php echo htmlspecialchars($nameid) ?>"<?php if ($nameid == $type) {
+    echo ' selected="selected"';
+} ?>>
 						<?php echo htmlspecialchars($typeName) ?>
 					</option>
 				<?php endforeach ?>
@@ -58,7 +62,7 @@
 			<th><label for="equip_level_min">Min Equip Level</label></th>
 			<td><input type="text" name="equip_level_min" id="equip_level_min" value="<?php echo htmlspecialchars($equipLevelMin) ?>" /></td>
 		</tr>
-		<?php if($server->isRenewal): ?>
+		<?php if ($server->isRenewal): ?>
 		<tr>
 			<th><label for="matk">MATK</label></th>
 			<td><input type="text" name="matk" id="matk" value="<?php echo htmlspecialchars($matk) ?>" /></td>
@@ -69,8 +73,12 @@
 		<tr>
 			<th><label>Refineable</label></th>
 			<td colspan="3">
-				<label style="display: inline"><input type="radio" name="refineable" value="1"<?php if ($refineable) echo ' checked="checked"' ?>/>Yes</label>
-				<label style="display: inline"><input type="radio" name="refineable" value="0"<?php if (!$refineable) echo ' checked="checked"' ?> />No</label>
+				<label style="display: inline"><input type="radio" name="refineable" value="1"<?php if ($refineable) {
+    echo ' checked="checked"';
+} ?>/>Yes</label>
+				<label style="display: inline"><input type="radio" name="refineable" value="0"<?php if (!$refineable) {
+    echo ' checked="checked"';
+} ?> />No</label>
 			</td>
 		</tr>
 		<tr>
@@ -78,7 +86,9 @@
 			<td colspan="3">
 				<select class="multi-select" name="equip_locations[]" id="equip_locations" size="5" multiple="multiple">
 				<?php foreach (Flux::getEquipLocationList() as $bit => $location): ?>
-					<option value="<?php echo htmlspecialchars($bit) ?>"<?php if ($equipLocs && in_array($bit, $equipLocs)) echo ' selected="selected"' ?>>
+					<option value="<?php echo htmlspecialchars($bit) ?>"<?php if ($equipLocs && in_array($bit, $equipLocs)) {
+    echo ' selected="selected"';
+} ?>>
 						<?php echo htmlspecialchars($location) ?>
 					</option>
 				<?php endforeach ?>
@@ -94,7 +104,9 @@
 			<td colspan="3">
 				<select class="multi-select" name="equip_upper[]" id="equip_upper" size="5" multiple="multiple">
 				<?php foreach (Flux::getEquipUpperList() as $bit => $upper): ?>
-					<option value="<?php echo htmlspecialchars($bit) ?>"<?php if ($equipUpper && in_array($bit, $equipUpper)) echo ' selected="selected"' ?>>
+					<option value="<?php echo htmlspecialchars($bit) ?>"<?php if ($equipUpper && in_array($bit, $equipUpper)) {
+    echo ' selected="selected"';
+} ?>>
 						<?php echo htmlspecialchars($upper) ?>
 					</option>
 				<?php endforeach ?>
@@ -110,7 +122,9 @@
 			<td colspan="3">
 				<select class="multi-select" name="equip_jobs[]" id="equip_jobs" size="10" multiple="multiple">
 				<?php foreach (Flux::getEquipJobsList() as $bit => $className): ?>
-					<option value="<?php echo htmlspecialchars($bit) ?>"<?php if ($equipJobs && in_array($bit, $equipJobs)) echo ' selected="selected"' ?>>
+					<option value="<?php echo htmlspecialchars($bit) ?>"<?php if ($equipJobs && in_array($bit, $equipJobs)) {
+    echo ' selected="selected"';
+} ?>>
 						<?php echo htmlspecialchars($className) ?>
 					</option>
 				<?php endforeach ?>
@@ -124,8 +138,12 @@
 		<tr>
 			<th><label>Equip Gender</label></th>
 			<td colspan="3">
-				<label style="display: inline"><input type="checkbox" name="equip_male" value="1"<?php if ($equipMale) echo ' checked="checked"' ?> />Male</label>
-				<label style="display: inline"><input type="checkbox" name="equip_female" value="1"<?php if ($equipFemale) echo ' checked="checked"' ?> />Female</label>
+				<label style="display: inline"><input type="checkbox" name="equip_male" value="1"<?php if ($equipMale) {
+    echo ' checked="checked"';
+} ?> />Male</label>
+				<label style="display: inline"><input type="checkbox" name="equip_female" value="1"<?php if ($equipFemale) {
+    echo ' checked="checked"';
+} ?> />Female</label>
 			</td>
 		</tr>
 		<tr>

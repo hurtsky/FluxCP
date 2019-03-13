@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>MVP Ranking</h2>
 <h3>Search</h3>
 <form action="" method="get" class="search-form2">
@@ -22,7 +24,7 @@
 
 
 <?php if ($mvpdata): ?>
-    <?php if($kills):?>
+    <?php if ($kills):?>
     <h3>Latest <?php echo Flux::config('MVPRankingLimit') ?> Kills</h3>
     <table class="horizontal-table">
     	<tr>
@@ -62,7 +64,7 @@
     <?php endif ?>
 
 <?php else: ?>
-    <?php if($mvps):?>
+    <?php if ($mvps):?>
     <h3>Latest <?php echo Flux::config('MVPRankingLimit') ?> Kills</h3>
     <table class="horizontal-table">
     	<tr>

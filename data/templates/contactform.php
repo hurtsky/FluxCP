@@ -3,8 +3,10 @@
  * Created and maintained by Akkarin
  * Current Version: 1.00.01
  */
- 
-if (!defined('FLUX_ROOT')) exit;
+
+if (!defined('FLUX_ROOT')) {
+    exit;
+}
 $emailTitle = sprintf('Contact Form Submission');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
