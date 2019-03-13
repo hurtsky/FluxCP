@@ -1,9 +1,11 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Homunculus Ranking</h2>
 <h3>
-	Top <?php echo number_format($limit=(int)Flux::config('HomunRankingLimit')) ?> Homunculi
+	Top <?php echo number_format($limit = (int) Flux::config('HomunRankingLimit')) ?> Homunculi
 	<?php if (!is_null($homunClass)): ?>
-	(<?php echo htmlspecialchars($className=$this->homunClassText($homunClass)) ?>)
+	(<?php echo htmlspecialchars($className = $this->homunClassText($homunClass)) ?>)
 	<?php endif ?>
 	on <?php echo htmlspecialchars($server->serverName) ?>
 </h3>
@@ -13,10 +15,14 @@
 	<p>
 		<label for="homunclass">Filter by class:</label>
 		<select name="homunclass" id="homunclass">
-			<option value=""<?php if (is_null($homunClass)) echo 'selected="selected"' ?>>All</option>
+			<option value=""<?php if (is_null($homunClass)) {
+    echo 'selected="selected"';
+} ?>>All</option>
 		<?php foreach ($classes as $homunClassIndex => $homunClassName): ?>
 			<option value="<?php echo $homunClassIndex ?>"
-				<?php if (!is_null($homunClass) && $homunClass == $homunClassIndex) echo ' selected="selected"' ?>>
+				<?php if (!is_null($homunClass) && $homunClass == $homunClassIndex) {
+    echo ' selected="selected"';
+} ?>>
 				<?php echo htmlspecialchars($homunClassName) ?>
 			</option>
 		<?php endforeach ?>
@@ -36,8 +42,12 @@
 		<th>Experience</th>
 	</tr>
 	<?php $topRankType = !is_null($homunClass) ? $className : 'homunculus' ?>
-	<?php for ($i = 0; $i < $limit; ++$i): ?>
-	<tr<?php if (!isset($homuns[$i])) echo ' class="empty-row"'; if ($i === 0) echo ' class="top-ranked" title="<strong>'.htmlspecialchars($homuns[$i]->homun_name).'</strong> is the top ranked '.$topRankType.'!"' ?>>
+	<?php for ($i = 0; $i < $limit; $i++): ?>
+	<tr<?php if (!isset($homuns[$i])) {
+    echo ' class="empty-row"';
+} if ($i === 0) {
+    echo ' class="top-ranked" title="<strong>'.htmlspecialchars($homuns[$i]->homun_name).'</strong> is the top ranked '.$topRankType.'!"';
+} ?>>
 		<td align="right"><?php echo number_format($i + 1) ?></td>
 		<?php if (isset($homuns[$i])): ?>
 		<td><strong><?php echo htmlspecialchars($homuns[$i]->homun_name) ?></strong></td>

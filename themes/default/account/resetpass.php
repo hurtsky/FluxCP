@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('ResetPassTitle')) ?></h2>
 <?php if (!empty($errorMessage)): ?>
 <p class="red"><?php echo htmlspecialchars($errorMessage) ?></p>
@@ -11,9 +13,13 @@
 		<tr>
 			<th><label for="login"><?php echo htmlspecialchars(Flux::message('ResetPassServerLabel')) ?></label></th>
 			<td>
-				<select name="login" id="login"<?php if (count($serverNames) === 1) echo ' disabled="disabled"' ?>>
+				<select name="login" id="login"<?php if (count($serverNames) === 1) {
+    echo ' disabled="disabled"';
+} ?>>
 				<?php foreach ($serverNames as $serverName): ?>
-					<option value="<?php echo htmlspecialchars($serverName) ?>"<?php if ($params->get('server') == $serverName) echo ' selected="selected"' ?>><?php echo htmlspecialchars($serverName) ?></option>
+					<option value="<?php echo htmlspecialchars($serverName) ?>"<?php if ($params->get('server') == $serverName) {
+    echo ' selected="selected"';
+} ?>><?php echo htmlspecialchars($serverName) ?></option>
 				<?php endforeach ?>
 				</select>
 			</td>

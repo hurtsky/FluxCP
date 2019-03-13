@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -33,7 +35,7 @@
 			<div class="row">
 				<div class="contentcontainer">
 							<h1>Install &amp; Update</h1>
-					<?php if ($message=$session->getMessage()): ?>
+					<?php if ($message = $session->getMessage()): ?>
 						<p class="message"><?php echo htmlspecialchars($message) ?></p>
 					<?php endif ?>
 					<?php if (!empty($errorMessage)): ?>

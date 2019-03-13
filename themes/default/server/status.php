@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('ServerStatusHeading')) ?></h2>
 <p><?php echo htmlspecialchars(Flux::message('ServerStatusInfo')) ?></p>
 <?php foreach ($serverStatus as $privServerName => $gameServers): ?>
@@ -10,7 +12,7 @@
 		<td class="status"><?php echo htmlspecialchars(Flux::message('ServerStatusCharLabel')) ?></td>
 		<td class="status"><?php echo htmlspecialchars(Flux::message('ServerStatusMapLabel')) ?></td>
 		<td class="status"><?php echo htmlspecialchars(Flux::message('ServerStatusOnlineLabel')) ?></td>
-		<?php if(Flux::config('EnablePeakDisplay')): ?>
+		<?php if (Flux::config('EnablePeakDisplay')): ?>
 			<td class="status"><?php echo htmlspecialchars(Flux::message('ServerStatusPeakLabel')) ?></td>
 		<?php endif ?>
 	</tr>
@@ -21,7 +23,7 @@
 		<td class="status"><?php echo $this->serverUpDown($gameServer['charServerUp']) ?></td>
 		<td class="status"><?php echo $this->serverUpDown($gameServer['mapServerUp']) ?></td>
 		<td class="status"><?php echo $gameServer['playersOnline'] ?></td>
-		<?php if(Flux::config('EnablePeakDisplay')): ?>
+		<?php if (Flux::config('EnablePeakDisplay')): ?>
 			<td class="status"><?php echo $gameServer['playersPeak'] ?></td>
 		<?php endif ?>
 	</tr>

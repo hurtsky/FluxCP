@@ -1,14 +1,20 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Password Changes</h2>
 <p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
 <form action="<?php echo $this->url ?>" method="get" class="search-form">
 	<?php echo $this->moduleActionFormInputs($params->get('module'), $params->get('action')) ?>
 	<p>
 		<label for="use_change_after">Change Date Between:</label>
-		<input type="checkbox" name="use_change_after" id="use_change_after"<?php if ($params->get('use_change_after')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_change_after" id="use_change_after"<?php if ($params->get('use_change_after')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('change_after') ?>
 		<label for="use_change_before">&mdash;</label>
-		<input type="checkbox" name="use_change_before" id="use_change_before"<?php if ($params->get('use_change_before')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_change_before" id="use_change_before"<?php if ($params->get('use_change_before')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('change_before') ?>
 	</p>
 	<p>
@@ -75,7 +81,7 @@
 		<td><?php echo $this->formatDateTime($change->change_date) ?></td>
 		<td>
 			<?php if ($auth->actionAllowed('account', 'index')): ?>
-				<?php echo $this->linkToAccountSearch(array('last_ip' => $change->change_ip), $change->change_ip) ?>
+				<?php echo $this->linkToAccountSearch(['last_ip' => $change->change_ip], $change->change_ip) ?>
 			<?php else: ?>
 				<?php echo htmlspecialchars($change->change_ip) ?>
 			<?php endif ?>

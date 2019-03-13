@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('CashLogHeading')) ?></h2>
 <?php if ($logs): ?>
 <?php echo $paginator->infoText() ?>
@@ -39,7 +41,7 @@
 				<span class="not-applicable"><?php echo htmlspecialchars(Flux::message('UnknownLabel')) ?></span>
 			<?php endif ?>
 		</td>
-		<td><?php echo $log->amount >= 0 ? '+'.number_format((int)$log->amount) : number_format((int)$log->amount) ?></td>
+		<td><?php echo $log->amount >= 0 ? '+'.number_format((int) $log->amount) : number_format((int) $log->amount) ?></td>
 		<td>
 			<?php if ($log->map): ?>
 				<?php echo htmlspecialchars(basename($log->map, '.gat')) ?>

@@ -1,10 +1,12 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('AccountViewHeading')) ?></h2>
 <?php if (!empty($errorMessage)): ?>
 <p class="red"><?php echo htmlspecialchars($errorMessage) ?></p>
 <?php endif ?>
 <?php if ($account): ?>
-<?php if (Flux::config('PincodeEnabled') && $session->account->pincode == NULL): ?>
+<?php if (Flux::config('PincodeEnabled') && $session->account->pincode == null): ?>
 	<p class="red">There is no pincode set! Please login via the game client now to secure your account.</p>
 <?php endif ?>
 <table class="vertical-table">
@@ -25,7 +27,7 @@
 		<td>
 			<?php if ($account->email): ?>
 				<?php if ($auth->actionAllowed('account', 'index')): ?>
-					<?php echo $this->linkToAccountSearch(array('email' => $account->email), $account->email) ?>
+					<?php echo $this->linkToAccountSearch(['email' => $account->email], $account->email) ?>
 				<?php else: ?>
 					<?php echo htmlspecialchars($account->email) ?>
 				<?php endif ?>
@@ -34,7 +36,7 @@
 			<?php endif ?>
 		</td>
 		<th><?php echo htmlspecialchars(Flux::message('AccountGroupIDLabel')) ?></th>
-		<td><?php echo (int)$account->group_id ?></td>
+		<td><?php echo (int) $account->group_id ?></td>
 	</tr>
 	<tr>
 		<th><?php echo htmlspecialchars(Flux::message('GenderLabel')) ?></th>
@@ -64,10 +66,10 @@
 	</tr>
 	<tr>
 		<th><?php echo htmlspecialchars(Flux::message('LoginCountLabel')) ?></th>
-		<td><?php echo number_format((int)$account->logincount) ?></td>
+		<td><?php echo number_format((int) $account->logincount) ?></td>
 		<th><?php echo htmlspecialchars(Flux::message('CreditBalanceLabel')) ?></th>
 		<td>
-			<?php echo number_format((int)$account->balance) ?>
+			<?php echo number_format((int) $account->balance) ?>
 			<?php if ($auth->allowedToDonate && $isMine): ?>
 				<a href="<?php echo $this->url('donate') ?>"><?php echo htmlspecialchars(Flux::message('AccountViewDonateLink')) ?></a>
 			<?php endif ?>
@@ -96,7 +98,7 @@
 		<td colspan="3">
 			<?php if ($account->last_ip): ?>
 				<?php if ($auth->actionAllowed('account', 'index')): ?>
-					<?php echo $this->linkToAccountSearch(array('last_ip' => $account->last_ip), $account->last_ip) ?>
+					<?php echo $this->linkToAccountSearch(['last_ip' => $account->last_ip], $account->last_ip) ?>
 				<?php else: ?>
 					<?php echo htmlspecialchars($account->last_ip) ?>
 				<?php endif ?>
@@ -105,7 +107,7 @@
 			<?php endif ?>
 		</td>
 	</tr>
-	<?php $banconfirm=htmlspecialchars(str_replace("'", "\\'", Flux::message('AccountBanConfirm'))) ?>
+	<?php $banconfirm = htmlspecialchars(str_replace("'", "\\'", Flux::message('AccountBanConfirm'))) ?>
 	<?php if ($showTempBan): ?>
 	<tr>
 		<th><?php echo htmlspecialchars(Flux::message('AccountViewTempBanLabel')) ?></th>
@@ -202,7 +204,7 @@
 		</tr>
 		<?php foreach ($chars as $char): $zeny += $char->zeny; ?>
 		<tr>
-			<td align="right"><?php echo $char->char_num+1 ?></td>
+			<td align="right"><?php echo $char->char_num + 1 ?></td>
 			<td>
 				<?php if ($auth->actionAllowed('character', 'view') && ($isMine || (!$isMine && $auth->allowedToViewCharacter))): ?>
 					<?php echo $this->linkToCharacter($char->char_id, $char->name, $serverName) ?>
@@ -211,14 +213,16 @@
 				<?php endif ?>
 			</td>
 			<td><?php echo htmlspecialchars($this->jobClassText($char->class)) ?></td>
-			<td><?php echo (int)$char->base_level ?></td>
-			<td><?php echo (int)$char->job_level ?></td>
-			<td><?php echo number_format((int)$char->zeny) ?></td>
+			<td><?php echo (int) $char->base_level ?></td>
+			<td><?php echo (int) $char->job_level ?></td>
+			<td><?php echo number_format((int) $char->zeny) ?></td>
 			<?php if ($char->guild_name): ?>
 				<?php if ($char->guild_emblem_len): ?>
 				<td><img src="<?php echo $this->emblem($char->guild_id) ?>" /></td>
 				<?php endif ?>
-				<td<?php if (!$char->guild_emblem_len) echo ' colspan="2"' ?>>
+				<td<?php if (!$char->guild_emblem_len) {
+    echo ' colspan="2"';
+} ?>>
 					<?php if ($auth->actionAllowed('guild', 'view')): ?>
 						<?php echo $this->linkToGuild($char->guild_id, $char->guild_name) ?>
 					<?php else: ?>
@@ -237,7 +241,7 @@
 			</td>
 			<?php if (($isMine || $auth->allowedToModifyCharPrefs) && $auth->actionAllowed('character', 'prefs')): ?>
 			<td>
-				<a href="<?php echo $this->url('character', 'prefs', array('id' => $char->char_id)) ?>"
+				<a href="<?php echo $this->url('character', 'prefs', ['id' => $char->char_id]) ?>"
 					class="block-link">
 					<?php echo htmlspecialchars(Flux::message('CharModifyPrefsLink')) ?>
 				</a>
@@ -269,7 +273,7 @@
 			<th>Extra</th>
 			</th>
 		</tr>
-		<?php foreach ($items AS $item): ?>
+		<?php foreach ($items as $item): ?>
 		<?php $icon = $this->iconImage($item->nameid) ?>
 		<tr>
 			<td align="right">
@@ -282,12 +286,18 @@
 			<?php if ($icon): ?>
 			<td><img src="<?php echo htmlspecialchars($icon) ?>" /></td>
 			<?php endif ?>
-			<td<?php if (!$icon) echo ' colspan="2"' ?><?php if ($item->cardsOver) echo ' class="overslotted' . $item->cardsOver . '"'; else echo ' class="normalslotted"' ?>>
+			<td<?php if (!$icon) {
+    echo ' colspan="2"';
+} ?><?php if ($item->cardsOver) {
+    echo ' class="overslotted'.$item->cardsOver.'"';
+} else {
+    echo ' class="normalslotted"';
+} ?>>
 				<?php if ($item->refine > 0): ?>
 					+<?php echo htmlspecialchars($item->refine) ?>
 				<?php endif ?>
-                <?php if ($item->card0 == 255 && intval($item->card1/1280) > 0): ?>
-                    <?php $itemcard1 = intval($item->card1/1280); ?>
+                <?php if ($item->card0 == 255 && intval($item->card1 / 1280) > 0): ?>
+                    <?php $itemcard1 = intval($item->card1 / 1280); ?>
 					<?php for ($i = 0; $i < $itemcard1; $i++): ?>
 						Very
 					<?php endfor ?>
@@ -296,16 +306,16 @@
 				<?php if ($item->card0 == 254 || $item->card0 == 255): ?>
 					<?php if ($item->char_name): ?>
 						<?php if ($auth->actionAllowed('character', 'view') && ($isMine || (!$isMine && $auth->allowedToViewCharacter))): ?>
-							<?php echo $this->linkToCharacter($item->char_id, $item->char_name, $session->serverName) . "'s" ?>
+							<?php echo $this->linkToCharacter($item->char_id, $item->char_name, $session->serverName)."'s" ?>
 						<?php else: ?>
-							<?php echo htmlspecialchars($item->char_name . "'s") ?>
+							<?php echo htmlspecialchars($item->char_name."'s") ?>
 						<?php endif ?>
 					<?php else: ?>
 						<span class="not-applicable"><?php echo htmlspecialchars(Flux::message('UnknownLabel')) ?></span>'s
 					<?php endif ?>
 				<?php endif ?>
-				<?php if ($item->card0 == 255 && array_key_exists($item->card1%1280, $itemAttributes)): ?>
-					<?php echo htmlspecialchars($itemAttributes[$item->card1%1280]) ?>
+				<?php if ($item->card0 == 255 && array_key_exists($item->card1 % 1280, $itemAttributes)): ?>
+					<?php echo htmlspecialchars($itemAttributes[$item->card1 % 1280]) ?>
 				<?php endif ?>
 				<?php if ($item->name_japanese): ?>
 					<span class="item_name"><?php echo htmlspecialchars($item->name_japanese) ?></span>
@@ -313,7 +323,7 @@
 					<span class="not-applicable"><?php echo htmlspecialchars(Flux::message('UnknownLabel')) ?></span>
 				<?php endif ?>
 				<?php if ($item->slots): ?>
-					<?php echo htmlspecialchars(' [' . $item->slots . ']') ?>
+					<?php echo htmlspecialchars(' ['.$item->slots.']') ?>
 				<?php endif ?>
 			</td>
 			<td><?php echo number_format($item->amount) ?></td>
@@ -332,7 +342,7 @@
 				<?php endif ?>
 			</td>
 			<td>
-				<?php if($item->card0 && ($item->type == 4 || $item->type == 5) && $item->card0 != 254 && $item->card0 != 255 && $item->card0 != -256): ?>
+				<?php if ($item->card0 && ($item->type == 4 || $item->type == 5) && $item->card0 != 254 && $item->card0 != 255 && $item->card0 != -256): ?>
 					<?php if (!empty($cards[$item->card0])): ?>
 						<?php if ($auth->actionAllowed('item', 'view')): ?>
 							<?php echo $this->linkToItem($item->card0, $cards[$item->card0]) ?>
@@ -351,7 +361,7 @@
 				<?php endif ?>
 			</td>
 			<td>
-				<?php if($item->card1 && ($item->type == 4 || $item->type == 5) && $item->card0 != 255 && $item->card0 != -256): ?>
+				<?php if ($item->card1 && ($item->type == 4 || $item->type == 5) && $item->card0 != 255 && $item->card0 != -256): ?>
 					<?php if (!empty($cards[$item->card1])): ?>
 						<?php if ($auth->actionAllowed('item', 'view')): ?>
 							<?php echo $this->linkToItem($item->card1, $cards[$item->card1]) ?>
@@ -370,7 +380,7 @@
 				<?php endif ?>
 			</td>
 			<td>
-				<?php if($item->card2 && ($item->type == 4 || $item->type == 5) && $item->card0 != 254 && $item->card0 != 255 && $item->card0 != -256): ?>
+				<?php if ($item->card2 && ($item->type == 4 || $item->type == 5) && $item->card0 != 254 && $item->card0 != 255 && $item->card0 != -256): ?>
 					<?php if (!empty($cards[$item->card2])): ?>
 						<?php if ($auth->actionAllowed('item', 'view')): ?>
 							<?php echo $this->linkToItem($item->card2, $cards[$item->card2]) ?>
@@ -389,7 +399,7 @@
 				<?php endif ?>
 			</td>
 			<td>
-				<?php if($item->card3 && ($item->type == 4 || $item->type == 5) && $item->card0 != 254 && $item->card0 != 255 && $item->card0 != -256): ?>
+				<?php if ($item->card3 && ($item->type == 4 || $item->type == 5) && $item->card0 != 254 && $item->card0 != 255 && $item->card0 != -256): ?>
 					<?php if (!empty($cards[$item->card3])): ?>
 						<?php if ($auth->actionAllowed('item', 'view')): ?>
 							<?php echo $this->linkToItem($item->card3, $cards[$item->card3]) ?>
@@ -408,13 +418,13 @@
 				<?php endif ?>
 			</td>
 			<td>
-			<?php if($item->bound == 1):?>
+			<?php if ($item->bound == 1):?>
 				Account Bound
-			<?php elseif($item->bound == 2):?>
+			<?php elseif ($item->bound == 2):?>
 				Guild Bound
-			<?php elseif($item->bound == 3):?>
+			<?php elseif ($item->bound == 3):?>
 				Party Bound
-			<?php elseif($item->bound == 4):?>
+			<?php elseif ($item->bound == 4):?>
 				Character Bound
 			<?php else:?>
 					<span class="not-applicable">None</span>

@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Who's Online?</h2>
 <h3>Showing players on-line <?php echo htmlspecialchars($server->serverName) ?>.</h3>
 <?php if ($auth->allowedToSearchWhosOnline): ?>
@@ -24,7 +26,7 @@
 <?php echo $paginator->infoText() ?>
 
 <?php if ($hiddenCount): ?>
-<p><?php echo number_format($hiddenCount) ?> <?php echo ((int)$hiddenCount === 1) ? 'person has' : 'people have' ?> chosen to hide themselves from this list.</p>
+<p><?php echo number_format($hiddenCount) ?> <?php echo ((int) $hiddenCount === 1) ? 'person has' : 'people have' ?> chosen to hide themselves from this list.</p>
 <?php endif ?>
 
 <table class="horizontal-table">
@@ -56,7 +58,9 @@
 			<?php if ($char->guild_emblem_len): ?>
 			<td width="20"><img src="<?php echo $this->emblem($char->guild_id) ?>" /></td>
 			<?php endif ?>
-			<td<?php if (!$char->guild_emblem_len) echo ' colspan="2"' ?>>
+			<td<?php if (!$char->guild_emblem_len) {
+    echo ' colspan="2"';
+} ?>>
 				<?php if ($auth->actionAllowed('guild', 'view') && $auth->allowedToViewGuild): ?>
 					<?php echo $this->linkToGuild($char->guild_id, $char->guild_name) ?>
 				<?php else: ?>

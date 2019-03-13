@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('PickLogHeading')) ?></h2>
 <?php if ($picks): ?>
 <?php echo $paginator->infoText() ?>

@@ -1,4 +1,5 @@
 <?php
+
 // rAthena FluxCP Language Library
 //
 // Mempersembahkan, dukungan Bahasa Indonesia (id_id.php)
@@ -6,7 +7,7 @@
 // Oleh:
 // Cydh, nanakiwurtz, <YOU>
 
-return array(        
+return [
         // Generic/Misc.
         'YesLabel'                => 'Ya',
         'NoLabel'                 => 'Tidak',
@@ -28,7 +29,7 @@ return array(
         'SearchButton'            => 'Cari',
         'ResetButton'             => 'Reset',
         'FilterButton'            => 'Filter',
-        'NotAcceptingDonations'   => "Kami mohon maaf, tapi saat ini kami sedang tidak menerima donasi.  Kami mohon maaf untuk ketidaknyamanannya.",
+        'NotAcceptingDonations'   => 'Kami mohon maaf, tapi saat ini kami sedang tidak menerima donasi.  Kami mohon maaf untuk ketidaknyamanannya.',
         //'NotAcceptingDonations'   => "Kami mohon maaf, tapi sistem donasi kami saat ini sedang dalam perbaikan, mohon ulangi beberapa saat lagi.",
         'FoundSearchResults'      => 'Ditemukan. Total %d dari %d halaman.  Menampilkan hasil %d-%d.',
         'LoginToDonate'           => 'Harap log-in untuk melakukan donasi.',
@@ -61,7 +62,7 @@ return array(
         'ItemCard1Label'          => 'Kartu 1',
         'ItemCard2Label'          => 'Kartu 2',
         'ItemCard3Label'          => 'Kartu 3',
-             
+
     //SIDEBAR
     //FluxCP Menu Items
     //Categories
@@ -98,7 +99,7 @@ return array(
     'ServerStatusLabel'       => 'Status Server',
     'WoeHoursLabel'           => 'Jadwal WOE',
     'CastlesLabel'            => 'Kastil',
-    'WhosOnlineLabel'         => "Pemain Online",
+    'WhosOnlineLabel'         => 'Pemain Online',
     'MapStaticsLabel'         => 'Info Map',
     'RankingInfoLabel'        => 'Info Peringkat',
     'VendingInfoLabel'        => 'Info Vending',
@@ -106,7 +107,7 @@ return array(
     'MobDatabaseLabel'        => 'Database Monster',
     'JoinUsInFacebookLabel'   => 'Kunjungi kami di Facebook!',
     'RateUsOnRMSLabel'        => 'Kunjungi kami di RMS!',
-        
+
         // Module: account
         // - account/changemail
         'EmailChangeTitle'        => 'Ubah E-mail',
@@ -179,13 +180,13 @@ return array(
         'AccountCreateTerms'      => 'Syarat dan Ketentuan',
         'AccountCreateInfo'       => 'Anda diharapkan untuk membaca %s sebelum membuat akun baru, untuk memastikan bahwa Anda mengerti semua ketentuan  yang berlaku di private server kami.',
         'AccountCreateInfo2'      => 'Dengan menekan tombol "Buat Akun", Anda setuju untuk taat dan mengikuti %s kami.',
-        'AccountCreateGenderInfo' => "Jenis kelamin yang Anda pilih akan menentukan karakter Anda di dalam game!",
+        'AccountCreateGenderInfo' => 'Jenis kelamin yang Anda pilih akan menentukan karakter Anda di dalam game!',
         'AccountServerLabel'      => 'Server',
         'AccountUsernameLabel'    => 'Nama Pengguna',
         'AccountPasswordLabel'    => 'Kata Sandi',
         'AccountPassConfirmLabel' => 'Konfirmasi Kata Sandi',
         'AccountEmailLabel'       => 'Alamat E-mail',
-		'AccountEmailLabel2'      => 'Konfirmasi alamat e-mail',
+        'AccountEmailLabel2'      => 'Konfirmasi alamat e-mail',
         'AccountGenderLabel'      => 'Jenis Kelamin',
         'AccountBirthdateLabel'   => 'Tanggal Lahir',
         'AccountSecurityLabel'    => 'Kode Keamanan',
@@ -209,9 +210,9 @@ return array(
         'PasswordNeedSymbol'      => 'Kata sandi harus memiliki simbol setidaknya %d simbol.',
         'EmailAddressInUse'       => 'Alamat e-mail yang Anda masukkan sudah digunakan oleh pengguna lain. Masukkan alamat e-mail yang lain',
         'InvalidEmailAddress'     => 'Alamat e-mail yang Anda masukkan memiliki format yang tidak diizinkan',
-		'InvalidEmailconf'        => "Alamat e-mail Anda tidak cocok.",
+        'InvalidEmailconf'        => 'Alamat e-mail Anda tidak cocok.',
         'InvalidGender'           => 'Jenis kelamin yang diperbolehkan adalah "M" atau "F"',
-        'InvalidServer'           => "Server yang Anda pilih tidak tersedia.",
+        'InvalidServer'           => 'Server yang Anda pilih tidak tersedia.',
         'InvalidSecurityCode'     => 'Silakan masukkan kode keamanan dengan benar.',
         'InvalidPassword'         => 'Kata sandi Anda mengandung karakter yang tidak diperbolehkan.',
         'InvalidBirthdate'        => 'Tanggal lahir Anda tidak benar.',
@@ -321,7 +322,7 @@ return array(
         'AccountPermBanUnauth'    => 'Anda tidak dapat melakukan ban permanen pada akun ini.',
         'AccountLiftTempBan'      => 'Ban sementara pada akun ini telah dibatalkan.',
         'AccountLiftPermBan'      => 'Ban permanen pada akun ini telah dibatalkan.',
-        'AccountLiftBanUnauth'    => "Anda tidak dapat menghapus status ban pada akun ini.",
+        'AccountLiftBanUnauth'    => 'Anda tidak dapat menghapus status ban pada akun ini.',
         'AccountViewHeading'      => 'Melihat Akun',
         'AccountViewDonateLink'   => '(Donasi!)',
         'AccountViewTempBanLabel' => 'Ban Sementara',
@@ -358,7 +359,7 @@ return array(
         'AccountViewStorage'      => 'Penyimpanan Barang Milik %s',
         'AccountViewStorageCount' => '%s memiliki %s barang di penyimpanan.',
         'AccountViewNoStorage'    => 'Tidak ada apapun di dalam penyimpanan barang.',
-        'AccountViewNotFound'     => "Akun yang Anda cari tidak ditemukan.",
+        'AccountViewNotFound'     => 'Akun yang Anda cari tidak ditemukan.',
         // - account/xferlog
         'XferLogTitle'            => 'Catatan Transfer Kredit',
         'XferLogHeading'          => 'Catatan Transfer Kredit',
@@ -370,7 +371,7 @@ return array(
         'XferLogCharNameLabel'    => 'Untuk Karakter',
         'XferLogNotReceived'      => 'Anda tidak menerima pengiriman kredit.',
         'XferLogNotSent'          => 'Anda tidak mengirim pengiriman kredit.',
-        
+
         // Module: character
         // - character/changeslot
         // - character/index
@@ -395,25 +396,25 @@ return array(
         'DivorceInvalidChild'     => 'ID anak tidak ditemukan.',
         'DivorceMustBeOffline'    => '%s dan pasangannya harus dalam keadaan offline.',
         'DivorceMustBeOffline2'   => '%s, pasangan, dan anaknya harus dalam keadaan offline.',
-        'DivorceText1'            => "Apakah Anda ingin menceraikan dengan %s dan pasangannya?",
+        'DivorceText1'            => 'Apakah Anda ingin menceraikan dengan %s dan pasangannya?',
         'DivorceText2'            => 'Apabila %s memiliki anak, anak tersebut akan terpisah juga.',
         'DivorceText3'            => "Item 'Wedding ring' akan dihapus.",
         'DivorceButton'           => 'Ya.',
         'DivorceSuccessful'       => '%s telah bercerai!',
-        
+
         // Module: cplog
         // - cplog/index.php
         // - cplog/login.php
         // - cplog/paypal.php
         // - cplog/resetpass.php
         // - cplog/txnview.php
-        
+
         // Module: donate
         // - donate/complete
         // - donate/history
         // - donate/index
         // - donate/trusted
-        
+
         // Module: errors
         // - errors/missing_action
         'MissingActionTitle'      => 'Aksi Tidak Ditemukan',
@@ -429,12 +430,12 @@ return array(
         'MissingViewActLabel'     => 'Aksi:',
         'MissingViewReqLabel'     => 'URI Diminta:',
         'MissingViewLocLabel'     => 'Lokasi file:',
-        
+
         // Module: guild
         // - guild/export
         // - guild/index
         // - guild/view
-        
+
         // Module: history
         // - history/cplogin
         'HistoryCpLoginTitle'     => 'Login Control Panel',
@@ -478,7 +479,7 @@ return array(
         'HistoryPassResetResetDate'   => 'Tanggal Penyetelan',
         'HistoryPassResetResetIp'     => 'IP Penyetelan',
         'HistoryNoPassResets'         => 'Tidak ada percobaan merubah kata sandi.',
-        
+
         // Module: ipban
         // - ipban/add
         'IpbanAddTitle'           => 'Tambah Ban IP',
@@ -529,20 +530,20 @@ return array(
         'IpbanEnterUnbanReason'   => 'Harap masukkan alasan untuk pengangkatan ban IP.',
         'IpbanUnbanned'           => 'Ban IP telah dihilangkan!',
         'IpbanUnbanFailed'        => 'Gagal untuk menghilangkan %d ban IP!',
-        
+
         // Module: item
         // - item/add
         // - item/copy
         // - item/edit
         // - item/index
         // - item/view
-        
+
         // Module: itemshop
         // - itemshop/add
         // - itemshop/delete
         // - itemshop/edit
         // - itemshop/imagedel
-        
+
         // Module: logdata
         // - logdata/chat
         // - logdata/command
@@ -629,7 +630,7 @@ return array(
         'ZenyLogTypeLabel'        => 'Tipe',
         'ZenyLogAmountLabel'      => 'Jumlah',
         'ZenyLogMapLabel'         => 'Map',
-        
+
         // Module: mail
         // - mail/index
         'MailerTitle'             => 'Formulir Pesan (Form Mailer)',
@@ -644,7 +645,7 @@ return array(
         'MailerToLabel'           => 'Tujuan',
         'MailerSubjectLabel'      => 'Judul',
         'MailerBodyLabel'         => 'isi',
-        
+
         // Module: main
         // - main/index
         'MainPageHeading'         => 'Flux Control Panel',
@@ -659,11 +660,11 @@ return array(
         'PageNotFoundInfo'        => 'Halaman yang diminta tidak ditemukan. Harap periksa kembali alamat yang dimasukkan.',
         // - main/preprocess
         'DisallowedDuringWoE'     => 'Halaman yang diminta tidak dapat diakses ketika WoE.',
-        
+
         // Module: monster
         // - monster/index
         // - monster/view
-        
+
         // Module: purchase
         // - purchase/add
         // - purchase/cart
@@ -672,12 +673,12 @@ return array(
         // - purchase/index
         // - purchase/pending
         // - purchase/remove
-        
+
         // Module: ranking
         // - ranking/character
         // - ranking/guild
         // - ranking/zeny
-        
+
         // Module: server
         // - server/info
         'ServerInfoTitle'         => 'Informasi Server',
@@ -693,27 +694,27 @@ return array(
         // - server/status
         'ServerStatusTitle'       => 'Status Server Saat Ini',
         'ServerStatusHeading'     => 'Status Server',
-        'ServerStatusInfo'        => "Berikut ini adalah status dari tiap server.",
+        'ServerStatusInfo'        => 'Berikut ini adalah status dari tiap server.',
         'ServerStatusServerLabel' => 'Server',
         'ServerStatusLoginLabel'  => 'Login Server',
         'ServerStatusCharLabel'   => 'Character Server',
         'ServerStatusMapLabel'    => 'Map Server',
         'ServerStatusOnlineLabel' => 'Pemain Online',
         'ServerStatusPeakLabel'   => 'Pemain Terbanyak',
-        
+
         // Module: service
         // - service/tos
         'TermsTitle'              => 'Syarat dan Ketentuan',
         'TermsHeading'            => 'Syarat dan Ketentuan',
         'TermsInfo'               => 'Harap dibaca sebelum Anda membuat akun!',
-        'TermsInfo2'              => "FOR CONTROL PANEL ADMINISTRATOR:  Anda harus menambahkan server ToS pada tampilan ini secara langsung. Lokasi dari file ini adalah: %s",
-        
+        'TermsInfo2'              => 'FOR CONTROL PANEL ADMINISTRATOR:  Anda harus menambahkan server ToS pada tampilan ini secara langsung. Lokasi dari file ini adalah: %s',
+
         // Module: unauthorized
         // - unauthorized/index
         'UnauthorizedTitle'       => 'Tidak Diperbolehkan',
         'UnauthorizedHeading'     => 'Tidak Diperbolehkan',
         'UnauthorizedInfo'        => 'Anda tidak diperbolehkan untuk melihat halaman ini. <a href="%s">Kembali ke sebelumnya…</a>',
-        
+
         // Module: woe
         // - woe/index
         'WoeTitle'                => 'Jadwal WoE',
@@ -723,155 +724,152 @@ return array(
         'WoeServerLabel'          => 'Server',
         'WoeTimesLabel'           => 'Jadwal War of Emperium',
         'WoeNotScheduledInfo'     => 'Tidak ada jadwal WoE saat ini.',
-        
+
         // Module: tasks
-        'TaskListHeader'       => 'Daftar Tugas',
+        'TaskListHeader'                => 'Daftar Tugas',
         'TaskListHeaderCompleted'       => 'Tugas Yang Sudah Selesai',
-        'TaskListAdd'       => 'Tambahkan Tugas Baru',
-        'TaskListAdded'       => 'Tugas baru sudah ditambahkan!',
-        'TaskListSub'       => 'Daftar Tugas GM!',
-        'TLNotAssigned'       => 'Belum ditentukan',
-        'TLNoTasks'       => 'Tidak ada tugas saat ini.',
-        'TLNoMine'       => 'Tidak ada tugas yang diberikan saat ini.',
-        'TLNoCompleted'       => 'Tidak ada tugas yang belum selesai..',
-        'TLHeaderTasks'       => 'Tugas',
-        'TLHeaderOwner'       => 'Pemilik',   
-        'TLHeaderPriority'       => 'Prioritas', 
-        'TLHeaderStatus'       => 'Status',  
-        'TLHeaderCreated'       => 'Dibuat',
-        'TLHeaderModified'       => 'Dimodifikasi',
-        'TLHeaderResources'       => 'Tambahan',
-        'TLHeaderBody'       => 'isi',
-        'TLPriority1'       => 'Penting',
-        'TLPriority2'       => 'Prioritas Tinggi',
-        'TLPriority3'       => 'Prioritas Normal',
-        'TLStatus0'       => 'Tugas Baru',
-        'TLStatus1'       => 'Dalam Proses',
-        'TLStatus2'       => 'Menunggu Penerapan',
-        'TLStatus5'       => 'Selesai',
-        'TLHuh'       => 'Terjadi sesuatu, seharusnya Anda tidak dapat melihat ini!',
-        
+        'TaskListAdd'                   => 'Tambahkan Tugas Baru',
+        'TaskListAdded'                 => 'Tugas baru sudah ditambahkan!',
+        'TaskListSub'                   => 'Daftar Tugas GM!',
+        'TLNotAssigned'                 => 'Belum ditentukan',
+        'TLNoTasks'                     => 'Tidak ada tugas saat ini.',
+        'TLNoMine'                      => 'Tidak ada tugas yang diberikan saat ini.',
+        'TLNoCompleted'                 => 'Tidak ada tugas yang belum selesai..',
+        'TLHeaderTasks'                 => 'Tugas',
+        'TLHeaderOwner'                 => 'Pemilik',
+        'TLHeaderPriority'              => 'Prioritas',
+        'TLHeaderStatus'                => 'Status',
+        'TLHeaderCreated'               => 'Dibuat',
+        'TLHeaderModified'              => 'Dimodifikasi',
+        'TLHeaderResources'             => 'Tambahan',
+        'TLHeaderBody'                  => 'isi',
+        'TLPriority1'                   => 'Penting',
+        'TLPriority2'                   => 'Prioritas Tinggi',
+        'TLPriority3'                   => 'Prioritas Normal',
+        'TLStatus0'                     => 'Tugas Baru',
+        'TLStatus1'                     => 'Dalam Proses',
+        'TLStatus2'                     => 'Menunggu Penerapan',
+        'TLStatus5'                     => 'Selesai',
+        'TLHuh'                         => 'Terjadi sesuatu, seharusnya Anda tidak dapat melihat ini!',
+
         // Module: contactform
         'CFTitleSubmit'                        => 'Hubungi Kami',
 
         // Module: logdata/harmony
-        'HARTitle'                                => 'Harmony Logs',
-        'HARSearchLink'                        => 'Cari...',
-        'HARDateBetween'                => 'Tanggal Antara',
-        'HARIPAddress'                        => 'Alamat IP',
-        'HARCharacter'                        => 'Karakter',
-        'HARAccountID'                        => 'ID Akun',
+        'HARTitle'                                 => 'Harmony Logs',
+        'HARSearchLink'                            => 'Cari...',
+        'HARDateBetween'                           => 'Tanggal Antara',
+        'HARIPAddress'                             => 'Alamat IP',
+        'HARCharacter'                             => 'Karakter',
+        'HARAccountID'                             => 'ID Akun',
         'HARNoData'                                => 'Data tidak ditemukan.',
         'HARGoback'                                => 'Kembali',
-        'HARTitle'                                => 'Harmony Logs',
-        'HARTitle'                                => 'Harmony Logs',
-        'HARTitle'                                => 'Harmony Logs',
-        'HARTitle'                                => 'Harmony Logs',
-        'HARTitle'                                => 'Harmony Logs',
-        'HARTitle'                                => 'Harmony Logs',
-        'HARTitle'                                => 'Harmony Logs',
-        
+        'HARTitle'                                 => 'Harmony Logs',
+        'HARTitle'                                 => 'Harmony Logs',
+        'HARTitle'                                 => 'Harmony Logs',
+        'HARTitle'                                 => 'Harmony Logs',
+        'HARTitle'                                 => 'Harmony Logs',
+        'HARTitle'                                 => 'Harmony Logs',
+        'HARTitle'                                 => 'Harmony Logs',
+
         // Module: News and Pages
-        'XCMSNewsHeader'                => 'Pengumuman',
-        'XCMSPageHeader'                => 'Content Management System',
-        'XCMSPageText'                        => 'Addon FluxCP ini memungkinkan admin dan staff untuk membuat halaman pada website mereka tanpa memerlukan pengetahuan tentang flux/koding. System berita terintegerasi dapat juga menggunakan RSS Feed dengan memodifikasi pengaturan addon..',
-        'XCMSNewsTitleError'        => 'Judul berita tidak boleh kosong!',
-        'XCMSNewsBodyError'                => 'Isi berita tidak boleh kosong!',
-        'XCMSPageTitleError'        => 'Judul halaman tidak boleh kosong!',
-        'XCMSPageBodyError'                => 'Isi halaman tidak boleh kosong!',
-        'XCMSPagePathError'                => 'Lokasi halaman diperlukan!',
-        'XCMSNewsAdded'                        => 'Berita baru telah ditambahkan',
-        'XCMSPagesAdded'                => 'Halaman baru telah ditambahkan',
-        'XCMSNewsUpdated'                => 'Berita telah diperbarui',
-        'XCMSPageUpdated'                => 'Halaman telah diperbarui', 
-        'XCMSNewsAddTitle'                => 'Tambah Berita Baru',
-        'XCMSPageAddTitle'                => 'Tambah Halaman Baru',
-        'XCMSNewsEditTitle'                => 'Ubah Berita',
-        'XCMSPageEditTitle'                => 'Ubah Halaman',
-        'XCMSNewsNotFound'                => 'Berita tidak ditemukan!',
-        'XCMSPageNotFound'                => 'Halaman tidak ditemukan!',
-        'XCMSNewsDeleted'                => 'Berita telah dihapus',
-        'XCMSPageDeleted'                => 'Halaman telah dihapus',
-        'XCMSNewsEmpty'                        => 'Tidak ada artikel berita yang ditemukan. Apakah Anda sudah menggunakan \'News Type\' yang benar? (XCMSNewsType setting)',
-        'XCMSNewsRSSNotFound'        => 'RSS feed tidak ditemukan. Pastikan pengaturan \'XCMSNewsRSS\' Anda sudah benar, atau ganti \'XCMSNewsType\' ke 1 untuk menggunakan fitur berita yang disediakan!',
-        'XCMSNewsTXTNotFound'        => 'Fungsi \'File Import\' tidak dapat digunakan pada versi ini. Ganti pengaturan \'XCMSNewsType\' Anda ke 1 untuk menggunakan fitur berita yang disediakan, atau 2 untuk menggunakan RSS Import!',
-        'XCMSNewsFBNotFound'        => 'Facebook feed tidak ditemukan!',
-        'XCMSPageEmpty'                        => 'Tidak ada halaman yang tersedia',
-        'XCMSNewsLink'                        => 'selanjutnya...',
+        'XCMSNewsHeader'                          => 'Pengumuman',
+        'XCMSPageHeader'                          => 'Content Management System',
+        'XCMSPageText'                            => 'Addon FluxCP ini memungkinkan admin dan staff untuk membuat halaman pada website mereka tanpa memerlukan pengetahuan tentang flux/koding. System berita terintegerasi dapat juga menggunakan RSS Feed dengan memodifikasi pengaturan addon..',
+        'XCMSNewsTitleError'                      => 'Judul berita tidak boleh kosong!',
+        'XCMSNewsBodyError'                       => 'Isi berita tidak boleh kosong!',
+        'XCMSPageTitleError'                      => 'Judul halaman tidak boleh kosong!',
+        'XCMSPageBodyError'                       => 'Isi halaman tidak boleh kosong!',
+        'XCMSPagePathError'                       => 'Lokasi halaman diperlukan!',
+        'XCMSNewsAdded'                           => 'Berita baru telah ditambahkan',
+        'XCMSPagesAdded'                          => 'Halaman baru telah ditambahkan',
+        'XCMSNewsUpdated'                         => 'Berita telah diperbarui',
+        'XCMSPageUpdated'                         => 'Halaman telah diperbarui',
+        'XCMSNewsAddTitle'                        => 'Tambah Berita Baru',
+        'XCMSPageAddTitle'                        => 'Tambah Halaman Baru',
+        'XCMSNewsEditTitle'                       => 'Ubah Berita',
+        'XCMSPageEditTitle'                       => 'Ubah Halaman',
+        'XCMSNewsNotFound'                        => 'Berita tidak ditemukan!',
+        'XCMSPageNotFound'                        => 'Halaman tidak ditemukan!',
+        'XCMSNewsDeleted'                         => 'Berita telah dihapus',
+        'XCMSPageDeleted'                         => 'Halaman telah dihapus',
+        'XCMSNewsEmpty'                           => 'Tidak ada artikel berita yang ditemukan. Apakah Anda sudah menggunakan \'News Type\' yang benar? (XCMSNewsType setting)',
+        'XCMSNewsRSSNotFound'                     => 'RSS feed tidak ditemukan. Pastikan pengaturan \'XCMSNewsRSS\' Anda sudah benar, atau ganti \'XCMSNewsType\' ke 1 untuk menggunakan fitur berita yang disediakan!',
+        'XCMSNewsTXTNotFound'                     => 'Fungsi \'File Import\' tidak dapat digunakan pada versi ini. Ganti pengaturan \'XCMSNewsType\' Anda ke 1 untuk menggunakan fitur berita yang disediakan, atau 2 untuk menggunakan RSS Import!',
+        'XCMSNewsFBNotFound'                      => 'Facebook feed tidak ditemukan!',
+        'XCMSPageEmpty'                           => 'Tidak ada halaman yang tersedia',
+        'XCMSNewsLink'                            => 'selanjutnya...',
         'XCMSEdit'                                => 'Ubah',
-        'XCMSDelete'                        => 'Hapus',
-        'XCMSNewsTitleLabel'        => 'Judul Berita',
-        'XCMSNewsBodyLabel'                => 'Isi Berita',
-        'XCMSNewsLinkLabel'                => 'Tautan Berita',
-        'XCMSNewsAuthorLabel'        => 'Penulis Berita',
-        'XCMSPageTitleLabel'        => 'Judul',
-        'XCMSPageBodyLabel'                => 'Isi',
-        'XCMSPagePathLabel'                => 'Lokasi Halaman',
-        'XCMSCreatedLabel'                => 'Tanggal Dibuat',
-        'XCMSModifiedLabel'                => 'Tanggal Diubah',
-        'XCMSActionLabel'                => 'Aksi',
-        'XCMSConfirmDelete'                => 'Hapus?',
-        'XCMSPageCreate'                => 'Buat sekarang?',
-        'XCMSOptionalLabel'                => '(Tidak Harus Diisi)',
-        'XCMSRequiredLabel'                => '(Harus Diisi)',
-                
+        'XCMSDelete'                              => 'Hapus',
+        'XCMSNewsTitleLabel'                      => 'Judul Berita',
+        'XCMSNewsBodyLabel'                       => 'Isi Berita',
+        'XCMSNewsLinkLabel'                       => 'Tautan Berita',
+        'XCMSNewsAuthorLabel'                     => 'Penulis Berita',
+        'XCMSPageTitleLabel'                      => 'Judul',
+        'XCMSPageBodyLabel'                       => 'Isi',
+        'XCMSPagePathLabel'                       => 'Lokasi Halaman',
+        'XCMSCreatedLabel'                        => 'Tanggal Dibuat',
+        'XCMSModifiedLabel'                       => 'Tanggal Diubah',
+        'XCMSActionLabel'                         => 'Aksi',
+        'XCMSConfirmDelete'                       => 'Hapus?',
+        'XCMSPageCreate'                          => 'Buat sekarang?',
+        'XCMSOptionalLabel'                       => '(Tidak Harus Diisi)',
+        'XCMSRequiredLabel'                       => '(Harus Diisi)',
+
         // Module: vending
         'TLHeaderTasks'                        => 'Tugas',
-        'TLHeaderOwner'                        => 'Pemilik',   
-        'TLHeaderPriority'                => 'Prioritas', 
-        'TLHeaderStatus'                => 'Status',  
-        'TLHeaderCreated'                => 'Dibuat',
-        'TLHeaderModified'                => 'Diubah',
-        'TLHeaderResources'                => 'Bahan Tambahan',
-        'TLHeaderBody'                        => 'Isi',
-        
-        // Module: servicedesk
-		'SDHeader'                                => 'Layanan Bantuan',
-        'SDCreateNew'                        => 'Kirim Laporan',
-        'SDWelcomeText'                        => 'Selamat datang di Layanan Bantuan',
-        'SDNoTickets'                        => 'Anda tidak memiliki laporan apapun.',
-        'SDNoBlankResponse'                => 'Anda harus mengisi data ke dalam formulir!',
-        'SDNoCatsAvailable'                => 'Tidak ada kategori yang tersedia',
-        'SDNoOpenTickets'                => 'Tidak ada laporan di database.',
-        'SDNoInactiveTickets'        => "Tidak ada laporan yang 'tidak aktif' di database.",
-        'SDNoClosedTickets'                => "Tidak ada laporan yang 'ditutup' di database.",
-        'SDNoCats'                                => 'Tidak ada kategori di database.',
-        'SDHuh'                                        => 'Error', 
-        'SDPointerChatLog'                => 'Kami sarankan untuk menggunakan <a href="http://pastebin.com" target="_blank">pastebin.com</a> lalu kirimkan tautannya pada kami.',
-        'SDPointerScreenShot'        => 'Kirimkan juga tautan dari gambar atau screenshot yang Anda punya',
-        'SDPointerVideoLink'        => 'Kami sarankan untuk mengunggah video Anda ke YouTube, lalu kirimkan tautannya pada kami.',
-        'SDHeaderID'                        => 'Laporan #',  
-        'SDHeaderSubject'                => 'Subjek',  
-        'SDHeaderCategory'                => 'Kategori',
-        'SDHeaderStatus'                => 'Status',  
-        'SDHeaderLastAuthor'        => 'Penulis Terakhir',
-        'SDHeaderTimestamp'                => 'Dibuat',  
-        'SDHeaderAccount'                => 'Akun',  
-        'SDHeaderTeam'                        => 'Tim',  
-        'SDH3ActiveTickets'                => 'Laporan Aktif',
-        'SDH3InActiveTickets'        => 'Laporan Tidak Aktif',
-        'SDH3ClosedTickets'                => 'Laporan Ditutup',
-        'SDH3CurrentCat'                => 'Kategori',
-        'SDH3CreateCat'                        => 'Buat Kategori Baru',
-        'SDH3StaffList'                        => 'Pengaturan Staf',
-        'SDH3StaffCreate'                => 'Tambah Staf',
-        'SDReOpenPlayer'                => 'Laporan diaktifkan kembali oleh pemain',
-        'SDReOpenStaff'                        => '',
-        'SDRespTable1'                        => 'Balas dan Kembali ke Laporan',
-        'SDRespTable2'                        => 'Balas dan Kembali ke Daftar Laporan',
-        'SDRespTable3'                        => 'Balas dan Tutup Laporan',
-        'SDRespTable4'                        => 'Balas dan Tingkatkan Status',
-        'SDRespTable5'                        => 'Tutup Laporan',
-        'SDRespTable6'                        => 'Balas dan Aktifkan Laporan',
-        'SDGroup1'                                => 'Staf Layanan Bantuan',
-        'SDGroup2'                                => 'Kepala Staf Layanan Bantuan',
-        'SDGroup3'                                => 'Administrasi',
-        'SDLinkOpenNew'                        => 'Buat laporan baru',
+        'TLHeaderOwner'                        => 'Pemilik',
+        'TLHeaderPriority'                     => 'Prioritas',
+        'TLHeaderStatus'                       => 'Status',
+        'TLHeaderCreated'                      => 'Dibuat',
+        'TLHeaderModified'                     => 'Diubah',
+        'TLHeaderResources'                    => 'Bahan Tambahan',
+        'TLHeaderBody'                         => 'Isi',
 
+        // Module: servicedesk
+        'SDHeader'                                     => 'Layanan Bantuan',
+        'SDCreateNew'                                  => 'Kirim Laporan',
+        'SDWelcomeText'                                => 'Selamat datang di Layanan Bantuan',
+        'SDNoTickets'                                  => 'Anda tidak memiliki laporan apapun.',
+        'SDNoBlankResponse'                            => 'Anda harus mengisi data ke dalam formulir!',
+        'SDNoCatsAvailable'                            => 'Tidak ada kategori yang tersedia',
+        'SDNoOpenTickets'                              => 'Tidak ada laporan di database.',
+        'SDNoInactiveTickets'                          => "Tidak ada laporan yang 'tidak aktif' di database.",
+        'SDNoClosedTickets'                            => "Tidak ada laporan yang 'ditutup' di database.",
+        'SDNoCats'                                     => 'Tidak ada kategori di database.',
+        'SDHuh'                                        => 'Error',
+        'SDPointerChatLog'                             => 'Kami sarankan untuk menggunakan <a href="http://pastebin.com" target="_blank">pastebin.com</a> lalu kirimkan tautannya pada kami.',
+        'SDPointerScreenShot'                          => 'Kirimkan juga tautan dari gambar atau screenshot yang Anda punya',
+        'SDPointerVideoLink'                           => 'Kami sarankan untuk mengunggah video Anda ke YouTube, lalu kirimkan tautannya pada kami.',
+        'SDHeaderID'                                   => 'Laporan #',
+        'SDHeaderSubject'                              => 'Subjek',
+        'SDHeaderCategory'                             => 'Kategori',
+        'SDHeaderStatus'                               => 'Status',
+        'SDHeaderLastAuthor'                           => 'Penulis Terakhir',
+        'SDHeaderTimestamp'                            => 'Dibuat',
+        'SDHeaderAccount'                              => 'Akun',
+        'SDHeaderTeam'                                 => 'Tim',
+        'SDH3ActiveTickets'                            => 'Laporan Aktif',
+        'SDH3InActiveTickets'                          => 'Laporan Tidak Aktif',
+        'SDH3ClosedTickets'                            => 'Laporan Ditutup',
+        'SDH3CurrentCat'                               => 'Kategori',
+        'SDH3CreateCat'                                => 'Buat Kategori Baru',
+        'SDH3StaffList'                                => 'Pengaturan Staf',
+        'SDH3StaffCreate'                              => 'Tambah Staf',
+        'SDReOpenPlayer'                               => 'Laporan diaktifkan kembali oleh pemain',
+        'SDReOpenStaff'                                => '',
+        'SDRespTable1'                                 => 'Balas dan Kembali ke Laporan',
+        'SDRespTable2'                                 => 'Balas dan Kembali ke Daftar Laporan',
+        'SDRespTable3'                                 => 'Balas dan Tutup Laporan',
+        'SDRespTable4'                                 => 'Balas dan Tingkatkan Status',
+        'SDRespTable5'                                 => 'Tutup Laporan',
+        'SDRespTable6'                                 => 'Balas dan Aktifkan Laporan',
+        'SDGroup1'                                     => 'Staf Layanan Bantuan',
+        'SDGroup2'                                     => 'Kepala Staf Layanan Bantuan',
+        'SDGroup3'                                     => 'Administrasi',
+        'SDLinkOpenNew'                                => 'Buat laporan baru',
 
         // Module: webcommands
         'WCTitleLabel'		=> 'Web Commands',
-        
-);
 
-?>
+];

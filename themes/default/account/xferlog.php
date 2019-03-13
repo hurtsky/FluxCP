@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('XferLogHeading')) ?></h2>
 <h3><?php echo htmlspecialchars(Flux::message('XferLogReceivedSubHead')) ?></h3>
 <?php if ($incomingXfers): ?>

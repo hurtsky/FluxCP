@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Viewing Item</h2>
 <?php if ($item): ?>
 <?php $icon = $this->iconImage($item->item_id); ?>
@@ -10,8 +12,8 @@
 	<tr>
 		<th>Item ID</th>
 		<td><?php echo htmlspecialchars($item->item_id) ?></td>
-		<?php if ($image=$this->itemImage($item->item_id)): ?>
-		<td rowspan="<?php echo ($server->isRenewal)?9:8 ?>" style="width: 150px; text-align: center; vertical-alignment: middle">
+		<?php if ($image = $this->itemImage($item->item_id)): ?>
+		<td rowspan="<?php echo ($server->isRenewal) ? 9 : 8 ?>" style="width: 150px; text-align: center; vertical-alignment: middle">
 			<img src="<?php echo $image ?>" />
 		</td>
 		<?php endif ?>
@@ -34,7 +36,7 @@
 		<th>Credit Price</th>
 		<td>
 			<?php if ($item->cost): ?>
-				<?php echo number_format((int)$item->cost) ?>
+				<?php echo number_format((int) $item->cost) ?>
 			<?php else: ?>
 				<span class="not-applicable">Not For Sale</span>
 			<?php endif ?>
@@ -48,7 +50,7 @@
 	</tr>
 	<tr>
 		<th>NPC Buy</th>
-		<td><?php echo number_format((int)$item->price_buy) ?></td>
+		<td><?php echo number_format((int) $item->price_buy) ?></td>
 		<th>Weight</th>
 		<td><?php echo round($item->weight, 1) ?></td>
 	</tr>
@@ -58,21 +60,21 @@
 			<?php if (is_null($item->price_sell) && $item->price_buy): ?>
 				<?php echo number_format(floor($item->price_buy / 2)) ?>
 			<?php else: ?>
-				<?php echo number_format((int)$item->price_sell) ?>
+				<?php echo number_format((int) $item->price_sell) ?>
 			<?php endif ?>
 		</td>
 		<th>Weapon Level</th>
-		<td><?php echo number_format((int)$item->weapon_level) ?></td>
+		<td><?php echo number_format((int) $item->weapon_level) ?></td>
 	</tr>
 	<tr>
 		<th>Range</th>
-		<td><?php echo number_format((int)$item->range) ?></td>
+		<td><?php echo number_format((int) $item->range) ?></td>
 		<th>Defense</th>
-		<td><?php echo number_format((int)$item->defence) ?></td>
+		<td><?php echo number_format((int) $item->defence) ?></td>
 	</tr>
 	<tr>
 		<th>Slots</th>
-		<td><?php echo number_format((int)$item->slots) ?></td>
+		<td><?php echo number_format((int) $item->slots) ?></td>
 		<th>Refineable</th>
 		<td>
 			<?php if ($item->refineable): ?>
@@ -84,20 +86,20 @@
 	</tr>
 	<tr>
 		<th>Attack</th>
-		<td><?php echo number_format((int)$item->attack) ?></td>
+		<td><?php echo number_format((int) $item->attack) ?></td>
 		<th>Min Equip Level</th>
-		<td><?php echo number_format((int)$item->equip_level_min) ?></td>
+		<td><?php echo number_format((int) $item->equip_level_min) ?></td>
 	</tr>
-	<?php if($server->isRenewal): ?>
+	<?php if ($server->isRenewal): ?>
 	<tr>
 		<th>MATK</th>
-		<td><?php echo number_format((int)$item->matk) ?></td>
+		<td><?php echo number_format((int) $item->matk) ?></td>
 		<th>Max Equip Level</th>
 		<td>
 			<?php if ($item->equip_level_max == 0): ?>
 				<span class="not-applicable">None</span>
 			<?php else: ?>
-				<?php echo number_format((int)$item->equip_level_max) ?>
+				<?php echo number_format((int) $item->equip_level_max) ?>
 			<?php endif ?>
 		</td>
 	</tr>
@@ -105,7 +107,7 @@
 	<tr>
 		<th>Equip Locations</th>
 		<td colspan="<?php echo $image ? 4 : 3 ?>">
-			<?php if ($locs=$this->equipLocations($item->equip_locations)): ?>
+			<?php if ($locs = $this->equipLocations($item->equip_locations)): ?>
 				<?php echo htmlspecialchars(implode(' + ', $locs)) ?>
 			<?php else: ?>
 				<span class="not-applicable">None</span>
@@ -115,7 +117,7 @@
 	<tr>
 		<th>Equip Upper</th>
 		<td colspan="<?php echo $image ? 4 : 3 ?>">
-			<?php if ($upper=$this->equipUpper($item->equip_upper)): ?>
+			<?php if ($upper = $this->equipUpper($item->equip_upper)): ?>
 				<?php echo htmlspecialchars(implode(' / ', $upper)) ?>
 			<?php else: ?>
 				<span class="not-applicable">None</span>
@@ -125,7 +127,7 @@
 	<tr>
 		<th>Equippable Jobs</th>
 		<td colspan="<?php echo $image ? 4 : 3 ?>">
-			<?php if ($jobs=$this->equippableJobs($item->equip_jobs)): ?>
+			<?php if ($jobs = $this->equippableJobs($item->equip_jobs)): ?>
 				<?php echo htmlspecialchars(implode(' / ', $jobs)) ?>
 			<?php else: ?>
 				<span class="not-applicable">None</span>
@@ -150,7 +152,7 @@
 	<tr>
 		<th>Item Use Script</th>
 		<td colspan="<?php echo $image ? 4 : 3 ?>">
-			<?php if ($script=$this->displayScript($item->script)): ?>
+			<?php if ($script = $this->displayScript($item->script)): ?>
 				<?php echo $script ?>
 			<?php else: ?>
 				<span class="not-applicable">None</span>
@@ -160,7 +162,7 @@
 	<tr>
 		<th>Equip Script</th>
 		<td colspan="<?php echo $image ? 4 : 3 ?>">
-			<?php if ($script=$this->displayScript($item->equip_script)): ?>
+			<?php if ($script = $this->displayScript($item->equip_script)): ?>
 				<?php echo $script ?>
 			<?php else: ?>
 				<span class="not-applicable">None</span>
@@ -170,7 +172,7 @@
 	<tr>
 		<th>Unequip Script</th>
 		<td colspan="<?php echo $image ? 4 : 3 ?>">
-			<?php if ($script=$this->displayScript($item->unequip_script)): ?>
+			<?php if ($script = $this->displayScript($item->unequip_script)): ?>
 				<?php echo $script ?>
 			<?php else: ?>
 				<span class="not-applicable">None</span>
@@ -178,11 +180,11 @@
 		</td>
 	</tr>
 	<?php endif ?>
-    <?php if(Flux::config('ShowItemDesc')):?>
+    <?php if (Flux::config('ShowItemDesc')):?>
 	<tr>
 		<th>Description</th>
 		<td colspan="<?php echo $image ? 4 : 3 ?>">
-			<?php if($item->itemdesc): ?>
+			<?php if ($item->itemdesc): ?>
                 <?php echo $item->itemdesc ?>
             <?php else: ?>
                 <span class="not-applicable">Unknown</span>

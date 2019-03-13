@@ -1,14 +1,20 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Logins</h2>
 <p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
 <form action="<?php echo $this->url ?>" method="get" class="search-form">
 	<?php echo $this->moduleActionFormInputs($params->get('module'), $params->get('action')) ?>
 	<p>
 		<label for="use_login_after">Login Date Between:</label>
-		<input type="checkbox" name="use_login_after" id="use_login_after"<?php if ($params->get('use_login_after')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_login_after" id="use_login_after"<?php if ($params->get('use_login_after')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('login_after') ?>
 		<label for="use_login_before">&mdash;</label>
-		<input type="checkbox" name="use_login_before" id="use_login_before"<?php if ($params->get('use_login_before')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_login_before" id="use_login_before"<?php if ($params->get('use_login_before')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('login_before') ?>
 		<?php if ($auth->allowedToSearchCpLoginLogPw): ?>
 		...
@@ -28,10 +34,16 @@
 		...
 		<label for="error_code">Error Code:</label>
 		<select name="error_code" id="error_code">
-			<option value="all"<?php if (is_null($params->get('error_code')) || strtolower($params->get('error_code') == 'all')) echo ' selected="selected"' ?>>All</option>
-			<option value="none"<?php if (strtolower($params->get('error_code')) == 'none') echo ' selected="selected"' ?>>None</option>
+			<option value="all"<?php if (is_null($params->get('error_code')) || strtolower($params->get('error_code') == 'all')) {
+    echo ' selected="selected"';
+} ?>>All</option>
+			<option value="none"<?php if (strtolower($params->get('error_code')) == 'none') {
+    echo ' selected="selected"';
+} ?>>None</option>
 		<?php foreach ($loginErrors->toArray() as $errorCode => $errorType): ?>
-			<option value="<?php echo $errorCode ?>"<?php if (ctype_digit($params->get('error_code')) && $params->get('error_code') == $errorCode) echo ' selected="selected"' ?>><?php echo htmlspecialchars($errorType) ?></option>
+			<option value="<?php echo $errorCode ?>"<?php if (ctype_digit($params->get('error_code')) && $params->get('error_code') == $errorCode) {
+    echo ' selected="selected"';
+} ?>><?php echo htmlspecialchars($errorType) ?></option>
 		<?php endforeach ?>
 		</select>
 		
@@ -45,7 +57,7 @@
 	<tr>
 		<th><?php echo $paginator->sortableColumn('account_id', 'Account ID') ?></th>
 		<th><?php echo $paginator->sortableColumn('username', 'Username') ?></th>
-		<?php if (($showPassword=Flux::config('CpLoginLogShowPassword')) && ($seePassword=$auth->allowedToSeeCpLoginLogPass)): ?>
+		<?php if (($showPassword = Flux::config('CpLoginLogShowPassword')) && ($seePassword = $auth->allowedToSeeCpLoginLogPass)): ?>
 		<th><?php echo $paginator->sortableColumn('password', 'Password') ?></th>
 		<?php endif ?>
 		<th><?php echo $paginator->sortableColumn('ip', 'IP Address') ?></th>
@@ -67,7 +79,7 @@
 		<?php endif ?>
 		<td>
 			<?php if ($auth->actionAllowed('account', 'index')): ?>
-				<?php echo $this->linkToAccountSearch(array('last_ip' => $login->ip), $login->ip) ?>
+				<?php echo $this->linkToAccountSearch(['last_ip' => $login->ip], $login->ip) ?>
 			<?php else: ?>
 				<?php echo htmlspecialchars($login->ip) ?>
 			<?php endif ?>

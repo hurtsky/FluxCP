@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('IpbanRemoveHeading')) ?></h2>
 <?php if ($ipban): ?>
 	<?php if (!empty($errorMessage)): ?>
@@ -17,8 +19,8 @@
 				<th><label for="reason"><?php echo htmlspecialchars(Flux::message('IpbanRemoveReasonLabel')) ?></label></th>
 				<td>
 					<textarea name="reason" id="reason" class="reason"><?php
-						echo htmlspecialchars(empty($reason) ? '' : $reason)
-					?></textarea>
+                        echo htmlspecialchars(empty($reason) ? '' : $reason)
+                    ?></textarea>
 				</td>
 				<td></td>
 			</tr>

@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Viewing Monster</h2>
 <?php if ($monster): ?>
 <h3>
@@ -11,7 +13,7 @@
 	<tr>
 		<th>Monster ID</th>
 		<td><?php echo $monster->monster_id ?></td>
-		<?php if ($image=$this->monsterImage($monster->monster_id)): ?>
+		<?php if ($image = $this->monsterImage($monster->monster_id)): ?>
 		<td rowspan="12" style="width:150px; text-align: center; vertical-alignment: middle">
 			<img src="<?php echo $image ?>" />
 		</td>
@@ -40,7 +42,7 @@
 	<tr>
 		<th>Size</th>
 		<td>
-			<?php if ($size=Flux::monsterSizeName($monster->size)): ?>
+			<?php if ($size = Flux::monsterSizeName($monster->size)): ?>
 				<?php echo htmlspecialchars($size) ?>
 			<?php else: ?>
 				<span class="not-applicable">Unknown</span>
@@ -52,7 +54,7 @@
 	<tr>
 		<th>Race</th>
 		<td>
-			<?php if ($race=Flux::monsterRaceName($monster->race)): ?>
+			<?php if ($race = Flux::monsterRaceName($monster->race)): ?>
 				<?php echo htmlspecialchars($race) ?>
 			<?php else: ?>
 				<span class="not-applicable">Unknown</span>
@@ -119,19 +121,19 @@
 			<table class="character-stats">
 				<tr>
 					<td><span class="stat-name">STR</span></td>
-					<td><span class="stat-value"><?php echo number_format((int)$monster->strength) ?></span></td>
+					<td><span class="stat-value"><?php echo number_format((int) $monster->strength) ?></span></td>
 					<td><span class="stat-name">AGI</span></td>
-					<td><span class="stat-value"><?php echo number_format((int)$monster->agility) ?></span></td>
+					<td><span class="stat-value"><?php echo number_format((int) $monster->agility) ?></span></td>
 					<td><span class="stat-name">VIT</span></td>
-					<td><span class="stat-value"><?php echo number_format((int)$monster->vitality) ?></span></td>
+					<td><span class="stat-value"><?php echo number_format((int) $monster->vitality) ?></span></td>
 				</tr>
 				<tr>
 					<td><span class="stat-name">INT</span></td>
-					<td><span class="stat-value"><?php echo number_format((int)$monster->intelligence) ?></span></td>
+					<td><span class="stat-value"><?php echo number_format((int) $monster->intelligence) ?></span></td>
 					<td><span class="stat-name">DEX</span></td>
-					<td><span class="stat-value"><?php echo number_format((int)$monster->dexterity) ?></span></td>
+					<td><span class="stat-value"><?php echo number_format((int) $monster->dexterity) ?></span></td>
 					<td><span class="stat-name">LUK</span></td>
-					<td><span class="stat-value"><?php echo number_format((int)$monster->luck) ?></span></td>
+					<td><span class="stat-value"><?php echo number_format((int) $monster->luck) ?></span></td>
 				</tr>
 			</table>
 		</td>
@@ -149,7 +151,7 @@
 	<?php $mvpDrops = 0; ?>
 	<?php foreach ($itemDrops as $itemDrop): ?>
 	<tr class="item-drop-<?php echo $itemDrop['type'] ?>"
-		title="<strong><?php echo htmlspecialchars($itemDrop['name']) ?></strong> (<?php echo (float)$itemDrop['chance'] ?>%)">
+		title="<strong><?php echo htmlspecialchars($itemDrop['name']) ?></strong> (<?php echo (float) $itemDrop['chance'] ?>%)">
 		<td align="right">
 			<?php if ($auth->actionAllowed('item', 'view')): ?>
 				<?php echo $this->linkToItem($itemDrop['id'], $itemDrop['id']) ?>
@@ -157,11 +159,11 @@
 				<?php echo htmlspecialchars($itemDrop['id']) ?>
 			<?php endif ?>
 		</td>
-		<?php if ($image=$this->iconImage($itemDrop['id'])): ?>
+		<?php if ($image = $this->iconImage($itemDrop['id'])): ?>
 			<td><img src="<?php echo $image ?>" /></td>
 			<td>
 				<?php if ($itemDrop['type'] == 'mvp'): ?>
-				<?php ++$mvpDrops; ?>
+				<?php $mvpDrops++; ?>
 					<span class="mvp">MVP!</span>
 				<?php endif ?>
 				<?php echo htmlspecialchars($itemDrop['name']) ?>
@@ -169,13 +171,13 @@
 		<?php else: ?>
 			<td colspan="2">
 				<?php if ($itemDrop['type'] == 'mvp'): ?>
-				<?php ++$mvpDrops; ?>
+				<?php $mvpDrops++; ?>
 					<span class="mvp">MVP!</span>
 				<?php endif ?>
 				<?php echo htmlspecialchars($itemDrop['name']) ?>
 			</td>
 		<?php endif ?>
-		<td><?php echo (float)$itemDrop['chance'] ?>%</td>
+		<td><?php echo (float) $itemDrop['chance'] ?>%</td>
 	</tr>
 	<?php endforeach ?>
 	<?php if ($mvpDrops > 1): ?>

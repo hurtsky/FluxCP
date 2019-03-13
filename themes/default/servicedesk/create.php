@@ -1,5 +1,7 @@
 <?php
-if (!defined('FLUX_ROOT')) exit;
+if (!defined('FLUX_ROOT')) {
+    exit;
+}
 $this->loginRequired();
 ?>
 <h2><?php echo htmlspecialchars(Flux::message('SDCreateNew')) ?></h2>
@@ -21,10 +23,10 @@ $this->loginRequired();
 		<tr>
 			<th>Category</th>
 			<td><select name="category" id="category" onchange="showInfo()">
-				<?php if(!$catlist): ?>
+				<?php if (!$catlist): ?>
 					<option value="-1"><?php echo Flux::message('SDNoCatsAvailable') ?></option>
 				<?php else: ?>
-				<?php foreach($catlist as $cat):?>
+				<?php foreach ($catlist as $cat):?>
 					<option value="<?php echo $cat->cat_id ?>"><?php echo $cat->name ?></option>
 				<?php endforeach ?>
 				<?php endif ?>

@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('NPCLogHeading')) ?></h2>
 <?php if ($npcs): ?>
 <?php echo $paginator->infoText() ?>

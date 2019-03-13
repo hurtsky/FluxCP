@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('AccountEditHeading')) ?></h2>
 <?php if ($account): ?>
 	<?php if (!empty($errorMessage)): ?>
@@ -17,12 +19,12 @@
 				<td><input type="text" name="email" id="email" value="<?php echo htmlspecialchars($account->email) ?>" /></td>
 				<?php if ($auth->allowedToEditAccountGroupID && !$isMine): ?>
 					<th><label for="group_id"><?php echo htmlspecialchars(Flux::message('AccountGroupIDLabel')) ?></label></th>
-					<td><input type="text" name="group_id" id="group_id" value="<?php echo (int)$account->group_id ?>" /></td>
+					<td><input type="text" name="group_id" id="group_id" value="<?php echo (int) $account->group_id ?>" /></td>
 				<?php else: ?>
 					<th><?php echo htmlspecialchars(Flux::message('AccountGroupIDLabel')) ?></th>
 					<td>
-						<input type="hidden" name="group_id" value="<?php echo (int)$account->group_id ?>" />
-						<?php echo number_format((int)$account->group_id) ?>
+						<input type="hidden" name="group_id" value="<?php echo (int) $account->group_id ?>" />
+						<?php echo number_format((int) $account->group_id) ?>
 					</td>
 				<?php endif ?>
 			</tr>
@@ -30,8 +32,12 @@
 				<th><label for="gender"><?php echo htmlspecialchars(Flux::message('GenderLabel')) ?></label></th>
 				<td>
 					<select name="gender" id="gender">
-						<option value="M"<?php if ($account->sex == 'M') echo ' selected="selected"' ?>><?php echo $this->genderText('M') ?></option>
-						<option value="F"<?php if ($account->sex == 'F') echo ' selected="selected"' ?>><?php echo $this->genderText('F') ?></option>
+						<option value="M"<?php if ($account->sex == 'M') {
+    echo ' selected="selected"';
+} ?>><?php echo $this->genderText('M') ?></option>
+						<option value="F"<?php if ($account->sex == 'F') {
+    echo ' selected="selected"';
+} ?>><?php echo $this->genderText('F') ?></option>
 					</select>
 				</td>
 				<th><?php echo htmlspecialchars(Flux::message('AccountStateLabel')) ?></th>
@@ -50,13 +56,13 @@
 			</tr>
 			<tr>
 				<th><label for="logincount"><?php echo htmlspecialchars(Flux::message('LoginCountLabel')) ?></label></th>
-				<td><input type="text" name="logincount" id="logincount" value="<?php echo (int)$account->logincount ?>" /></td>
+				<td><input type="text" name="logincount" id="logincount" value="<?php echo (int) $account->logincount ?>" /></td>
 				<?php if ($auth->allowedToEditAccountBalance): ?>
 					<th><label for="balance"><?php echo htmlspecialchars(Flux::message('CreditBalanceLabel')) ?></label></th>
-					<td><input type="text" name="balance" id="balance" value="<?php echo (int)$account->balance ?>" /></td>
+					<td><input type="text" name="balance" id="balance" value="<?php echo (int) $account->balance ?>" /></td>
 				<?php else: ?>
 					<th><?php echo htmlspecialchars(Flux::message('CreditBalanceLabel')) ?></th>
-					<td><?php echo number_format((int)$account->balance) ?></td>
+					<td><?php echo number_format((int) $account->balance) ?></td>
 				<?php endif ?>
 			</tr>
 			<tr>

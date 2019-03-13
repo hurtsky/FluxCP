@@ -1,14 +1,20 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Logins</h2>
 <p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
 <form action="<?php echo $this->url ?>" method="get" class="search-form">
 	<?php echo $this->moduleActionFormInputs($params->get('module'), $params->get('action')) ?>
 	<p>
 		<label for="use_login_after">Login Date Between:</label>
-		<input type="checkbox" name="use_login_after" id="use_login_after"<?php if ($params->get('use_login_after')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_login_after" id="use_login_after"<?php if ($params->get('use_login_after')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('login_after') ?>
 		<label for="use_login_before">&mdash;</label>
-		<input type="checkbox" name="use_login_before" id="use_login_before"<?php if ($params->get('use_login_before')) echo ' checked="checked"' ?> />
+		<input type="checkbox" name="use_login_before" id="use_login_before"<?php if ($params->get('use_login_before')) {
+    echo ' checked="checked"';
+} ?> />
 		<?php echo $this->dateField('login_before') ?>
 		<?php if ($auth->allowedToSearchCpLoginLogPw): ?>
 		...
@@ -38,7 +44,7 @@
 	<tr>
 		<th><?php echo $paginator->sortableColumn('account_id', 'Account ID') ?></th>
 		<th><?php echo $paginator->sortableColumn('user_id', 'Username') ?></th>
-		<?php if (($showPassword=Flux::config('CpLoginLogShowPassword')) && ($seePassword=$auth->allowedToSeeCpLoginLogPass)): ?>
+		<?php if (($showPassword = Flux::config('CpLoginLogShowPassword')) && ($seePassword = $auth->allowedToSeeCpLoginLogPass)): ?>
 		<th><?php echo $paginator->sortableColumn('user_pass', 'Password') ?></th>
 		<?php endif ?>
 		<th><?php echo $paginator->sortableColumn('reg_ip', 'IP Address') ?></th>
@@ -60,7 +66,7 @@
 		<?php endif ?>
 		<td>
 			<?php if ($auth->actionAllowed('account', 'index')): ?>
-				<?php echo $this->linkToAccountSearch(array('reg_ip' => $login->reg_ip), $login->reg_ip) ?>
+				<?php echo $this->linkToAccountSearch(['reg_ip' => $login->reg_ip], $login->reg_ip) ?>
 			<?php else: ?>
 				<?php echo htmlspecialchars($login->reg_ip) ?>
 			<?php endif ?>

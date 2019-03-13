@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('CommandLogHeading')) ?></h2>
 <?php if ($commands): ?>
 <?php echo $paginator->infoText() ?>

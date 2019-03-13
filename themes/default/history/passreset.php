@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2><?php echo htmlspecialchars(Flux::message('HistoryPassResetHeading')) ?></h2>
 <?php if ($resets): ?>
 <?php echo $paginator->infoText() ?>
@@ -14,7 +16,7 @@
 		<td><?php echo $this->formatDateTime($reset->request_date) ?></td>
 		<td>
 		<?php if ($auth->actionAllowed('account', 'index')): ?>
-			<?php echo $this->linkToAccountSearch(array('last_ip' => $reset->request_ip), $reset->request_ip) ?>
+			<?php echo $this->linkToAccountSearch(['last_ip' => $reset->request_ip], $reset->request_ip) ?>
 		<?php else: ?>
 			<?php echo htmlspecialchars($reset->request_ip) ?>
 		<?php endif ?>
@@ -29,7 +31,7 @@
 		<td>
 			<?php if ($reset->reset_ip): ?>
 				<?php if ($auth->actionAllowed('account', 'index')): ?>
-					<?php echo $this->linkToAccountSearch(array('last_ip' => $reset->reset_ip), $reset->reset_ip) ?>
+					<?php echo $this->linkToAccountSearch(['last_ip' => $reset->reset_ip], $reset->reset_ip) ?>
 				<?php else: ?>
 					<?php echo htmlspecialchars($reset->reset_ip) ?>
 				<?php endif ?>

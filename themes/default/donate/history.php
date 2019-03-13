@@ -1,4 +1,6 @@
-<?php if (!defined('FLUX_ROOT')) exit; ?>
+<?php if (!defined('FLUX_ROOT')) {
+    exit;
+} ?>
 <h2>Donation History</h2>
 <h3>Transactions: Completed</h3>
 <?php if ($completedTxn): ?>
